@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+{% extends 'CrawlR/base.html' %}
+<%load staticfiles %}
+
 	<!-- Template details TBA 
 	Or sidebar details  -->
-	<head>
-		<title>Popular Routes</title>
-    <link href="popular.css" rel="stylesheet" type="text/css">
-	</head>
 
-	<body>
-	<h3>Popular routes
-	By ranking</h3>
+{% block title_block %}
+	Popular Routes
+{% endblock %}
+
+{% block body_block %}
+<div>
+	Popular Routes by ranking
 	<ul>
 		
 		<li><a href="all.html">Of all time</a></li>
@@ -17,8 +19,6 @@
 		<li><a href="south.html">This month</a></li>
 
 	</ul>
+</div>
 
-	</div>
-	
-	</body>
-	</html>
+{% endblock %}
