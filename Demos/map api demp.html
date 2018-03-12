@@ -33,8 +33,10 @@
     <div id="map"></div>
     <script>
      function initMap() {
+		var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
 	 
-
+		
 	
 		  var nightMode = new google.maps.StyledMapType(
 		  [
@@ -215,6 +217,7 @@
 		// Associate the styled map with the MapTypeId and set it to display.
 		map.mapTypes.set('Nightmode', nightMode);
 		map.setMapTypeId('roadmap');
+		directionsDisplay.setMap(map);
  /*        var marker = new google.maps.Marker({
           position: glasgow,
           map: map
@@ -233,6 +236,9 @@
 			displayWaypoints(points);
 			
       });
+	  document.getElementById('submit').addEventListener('click', function() {
+		calculateAndDisplayRoute(directionsService, directionsDisplay);
+  });
 	  
 	  function displayWaypoints(points){
 			document.write(points);
