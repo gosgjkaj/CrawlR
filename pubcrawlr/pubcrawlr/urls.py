@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from Crawlr import views
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.home, name='home'),
     url(r'^Crawlr/', include('Crawlr.urls')),
     url(r'^about/', include('Crawlr.urls')),
     url(r'^admin/', admin.site.urls),
