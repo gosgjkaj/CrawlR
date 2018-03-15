@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>About</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
-</head>
-<body>
-<h1>About</h1>
+<!DOCTYPE html> 
+{% extends "Crawlr/base.html" %}
+{% load staticfiles %}
 
-    <div>
-    <img src="{% static "media/gg.png" %}" alt="1" />
-    </div>
-</body>
-</html>
+{% block title_block %}
+	About Us
+{% endblock %}
+
+{% block body_block %}
+    <div id="home">  
+        <h1>Welcome to crawlr, your one stop for Glasgow pub crawls!</h1>  
+    </div>  
+ 
+	<div><a href = "crawlr/home/">Home</a></div> 
+{% endblock %}
+
+</html> 

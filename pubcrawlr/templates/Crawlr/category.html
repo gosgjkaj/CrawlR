@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'Crawlr/base.html' %}
+<%load staticfiles %}
+
+<!-- Template details TBA 
+	Or sidebar details  -->
+
+{% block title_block %}
+	PubCrawl Categories
+{% endblock %}
+
+{% block body_block %}
+<h3>Pubcrawl Categories</h3>
+	<div id="body">
+	By Location
+	<ul>
+		<li><a href="citycentre.html">City Centre</a></li>
+		<li><a href="east.html">East</a></li>
+		<li><a href="west.html">West</a></li>
+		<li><a href="north.html">North</a></li>
+		<li><a href="south.html">South</a></li>
+
+	</ul>
+	By type
+	<ul>
+		<li><a href="subcrawl.html">Subcrawl</a></li>
+	</ul>
+
+	</div>
+
+{% endblock %}
