@@ -39,7 +39,7 @@
         var directionsDisplay = new google.maps.DirectionsRenderer;
 		directionsDisplay.setMap(map);
 		  directionsDisplay.setPanel(document.getElementById('directionsPanel'));
-
+	
 		
 	
 		  var nightMode = new google.maps.StyledMapType(
@@ -237,7 +237,7 @@
         });
 		
 		document.getElementById('directions').addEventListener('click', function(){
-			calcRoute()
+			calcRoute();
 			
       });
 	  document.getElementById('submit').addEventListener('click', function() {
@@ -266,11 +266,24 @@
         });
       }
 	function calcRoute() {
-  var start = points[0];
-  var end = points[points.length - 1];
+	
+  var start = points.shift();
+  var end = points.pop();
+  var waypts = [];
+  <!-- for(address in points){
+				waypts.push(
+							{location: address,
+							stopover: true
+							});
+	}
+				 -->
+	
+  }
   var request = {
     origin: start,
     destination: end,
+	waypoints: waypts,
+	optimizeWaypoints: true,
     travelMode: 'WALKING'
   };
   directionsService.route(request, function(result, status) {
