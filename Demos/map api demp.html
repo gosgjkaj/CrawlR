@@ -31,15 +31,11 @@
 	  <input id="directions" type="button" value="Find directions">
     </div>
     <div id="map"></div>
-	<div id="directionsPanel" style="float:right;width:30%;height 100%"></div>
-
     <script>
      function initMap() {
 		var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
-		directionsDisplay.setMap(map);
-		  directionsDisplay.setPanel(document.getElementById('directionsPanel'));
-	
+	 
 		
 	
 		  var nightMode = new google.maps.StyledMapType(
@@ -237,7 +233,7 @@
         });
 		
 		document.getElementById('directions').addEventListener('click', function(){
-			calcRoute();
+			displayWaypoints(points);
 			
       });
 	  document.getElementById('submit').addEventListener('click', function() {
@@ -250,7 +246,7 @@
 	  }
 	  var points = [];
       function geocodeAddress(geocoder, resultsMap) {
-        var address = document.getElementById('address').value + "glasgow";
+        var address = document.getElementById('address').value;
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
@@ -265,33 +261,6 @@
           }
         });
       }
-	function calcRoute() {
-	
-  var start = points.shift();
-  var end = points.pop();
-  var waypts = [];
-  <!-- for(address in points){
-				waypts.push(
-							{location: address,
-							stopover: true
-							});
-	}
-				 -->
-	
-  }
-  var request = {
-    origin: start,
-    destination: end,
-	waypoints: waypts,
-	optimizeWaypoints: true,
-    travelMode: 'WALKING'
-  };
-  directionsService.route(request, function(result, status) {
-    if (status == 'OK') {
-      directionsDisplay.setDirections(result);
-    }
-  });
-}
  }
 	  
     </script>
