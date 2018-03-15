@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d1b46fe-d425-4463-8620-e7725a938edb" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Demos/index.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Demos/index.html" afterPath="$PROJECT_DIR$/Demos/index.html" />
-      <change beforePath="$PROJECT_DIR$/pubcrawlr/Crawlr/views.py" afterPath="$PROJECT_DIR$/pubcrawlr/Crawlr/views.py" />
+      <change beforePath="$PROJECT_DIR$/Demos/simple login.html" afterPath="$PROJECT_DIR$/Demos/simple login.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,18 +18,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Demos/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubcrawlr/Crawlr/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -39,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/Demos/simple login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -83,6 +73,7 @@
         <option value="$PROJECT_DIR$/pubcrawlr/static/css/base.css" />
         <option value="$PROJECT_DIR$/pubcrawlr/pubcrawlr/settings.py" />
         <option value="$PROJECT_DIR$/pubcrawlr/static/css/input.css" />
+        <option value="$PROJECT_DIR$/pubcrawlr/Crawlr/views.py" />
         <option value="$PROJECT_DIR$/pubcrawlr/Crawlr/urls.py" />
         <option value="$PROJECT_DIR$/pubcrawlr/pubcrawlr/urls.py" />
         <option value="$PROJECT_DIR$/pubcrawlr/templates/Crawlr/about.html" />
@@ -92,7 +83,6 @@
         <option value="$PROJECT_DIR$/pubcrawlr/pubcrawlr/populate_Crawlr" />
         <option value="$PROJECT_DIR$/Demos/simple login.html" />
         <option value="$PROJECT_DIR$/Demos/index.css" />
-        <option value="$PROJECT_DIR$/pubcrawlr/Crawlr/views.py" />
         <option value="$PROJECT_DIR$/Demos/index.html" />
       </list>
     </option>
@@ -104,8 +94,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="592" />
-    <option name="y" value="121" />
+    <option name="x" value="177" />
+    <option name="y" value="86" />
     <option name="width" value="1161" />
     <option name="height" value="810" />
   </component>
@@ -141,12 +131,6 @@
               <item name="CrawlR" type="b2602c69:ProjectViewProjectNode" />
               <item name="CrawlR" type="462c0819:PsiDirectoryNode" />
               <item name="pubcrawlr" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CrawlR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CrawlR" type="462c0819:PsiDirectoryNode" />
-              <item name="pubcrawlr" type="462c0819:PsiDirectoryNode" />
-              <item name="Crawlr" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CrawlR" type="b2602c69:ProjectViewProjectNode" />
@@ -207,18 +191,17 @@
       <workItem from="1521057747819" duration="446000" />
       <workItem from="1521059847075" duration="583000" />
       <workItem from="1521063456407" duration="968000" />
-      <workItem from="1521070797419" duration="9003000" />
+      <workItem from="1521070797419" duration="8514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11344000" />
+    <option name="totallyTimeSpent" value="10855000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="592" y="121" width="1161" height="810" extended-state="0" />
-    <editor active="true" />
+    <frame x="177" y="86" width="1161" height="810" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24978466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24978466" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -357,6 +340,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pubcrawlr/Crawlr/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pubcrawlr/Crawlr/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -448,23 +439,15 @@
     <entry file="file://$PROJECT_DIR$/Demos/simple login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubcrawlr/Crawlr/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Demos/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding />
         </state>
       </provider>
