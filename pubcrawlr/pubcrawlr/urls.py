@@ -22,5 +22,6 @@ from Crawlr import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^Crawlr/', include('Crawlr.urls')),
+    url(r'^about/', include('Crawlr.urls')),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
