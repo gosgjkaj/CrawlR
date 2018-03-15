@@ -4,7 +4,10 @@ from rango.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorateors import login_required
+
+
 from rango.models import Page
+from Crawlr.models import Page
 
 def home(request):
     context_dict = {}
@@ -54,7 +57,7 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileForm()
 
-    return render(reqeuest, "CrawlR/register.html",
+    return render(request, "Crawlr/register.html",
                   {"user_form" : user_form, "profile_form" : profile_form,
                    "registred" : registered})
 
