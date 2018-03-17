@@ -3,8 +3,8 @@
   <head>
     <style>
       #map {
-        height: 400px;
-        width: 100%;
+        height: 70%;
+        width: 60%;
        }
 	   
 	    #floating-panel {
@@ -54,31 +54,34 @@
         padding-top: 0;
       }
       #directions-panel {
+		position: absolute;
+		top: 50px;
+		right: 30px;
         margin-top: 10px;
         background-color: #FFEE77;
         padding: 10px;
         overflow: scroll;
-        height: 174px;
+        height: 70%;
       }
     </style>
   </head>
   <body>
     <h3>Find a place (geocoding)</h3>
 	 <div id="floating-panel">
-	<p id ="text">Please enter up to 10 pubs or bars.</p>
+	<p id ="text">Please enter the bars you wish to add to your crawl. </p>
       <input id="address" type="textbox" value="Glasgow University Union">
       <input id="submit" type="button" value="Find bar ">
 	  <input id="directions" type="button" value="Find directions">
     </div>
     <div id="map"></div>
-	<div id="directionsPanel" style="float:right;width:30%;height 100%"></div>
+	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
 
     <script>
      function initMap() {
 		var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
 		
-		  directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+		  directionsDisplay.setPanel(document.getElementById('directions-panel'));
 		  directionsDisplay.setMap(map);
 		
 	
@@ -344,18 +347,8 @@
         }, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
-            var route = response.routes[0];
-            var summaryPanel = document.getElementById('directions-panel');
-            summaryPanel.innerHTML = '';
-            // For each route, display summary information.
-            for (var i = 0; i < route.legs.length; i++) {
-              var routeSegment = i + 1;
-              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
-                  '</b><br>';
-              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-              summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-            }
+           
+           
           } else {
             window.alert('Directions request failed due to ' + status);
           }
