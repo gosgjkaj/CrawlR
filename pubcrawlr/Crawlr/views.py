@@ -4,10 +4,8 @@ from rango.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorateors import login_required
-
-
-from rango.models import Page
-from Crawlr.models import Page
+from rango.forms import RouteForm
+from Crawlr.models import Route
 
 def home(request):
     context_dict = {}
@@ -21,21 +19,32 @@ def show_category(request, category_name_slug):
 
     try:
         category = Category.objects.get(slug=category_name_slug)
-        pages = Page.objects.filter(category=category)
-        context_dict['pages'] = pages
+        routes = Route.objects.filter(category=category)
+        context_dict['routes'] = routes
         context_dict['category'] = category
     except Category.DoesNotExist:
         context_dict['category'] = None
-        context_dict['pages'] = None
+        context_dict['routes'] = None
 
-    return render(request, 'Crawlr/category.html', context_dict)    
+    return render(request, 'Crawlr/category.html', context_dict)
+
+def add_route(request):
+    form = RouteForm()
+    if request.method == 'POST':
+        form = RouteForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+    return render(request, 'Crawlr/add_route.html', {'form':'form'})
 
 def register(request):
     registered = False
 
     if request.method == "POST":
         user_form = UserForm(data = request.POST)
-        profile_form =UserProfileFor(data = request.POST)
+        profile_form = UserProfileForm(data = request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
@@ -44,8 +53,8 @@ def register(request):
             profile = profile_form.save(commit=False)
             profile.user = user
 
-           if "picture" in request.FILES:
-                profile.picture = request.FILES("picture")
+            if "picture" in request.FILES:
+                profile.picture = request.FILES["picture"]
 
             profile.save()
             registered = True
