@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^logout/$', views.user_logout, name='logout'),
 ##    url(r'^category/(?P<category_name_slug>[\w\-]+)/add_route/$', views.add_route, name='add_route'),
     url(r'^add_route/$', views.add_route, name='add_route'),
+    url(r'^popular/$', views.popular, name="popular"),
 
 ]

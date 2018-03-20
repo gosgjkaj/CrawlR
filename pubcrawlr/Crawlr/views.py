@@ -43,6 +43,10 @@ def add_route(request):
     context_dict ={}
     return render(request, 'Crawlr/add_route.html', context=context_dict)
 
+def popular(request):
+    context_dict = {}
+    return render(request, 'Crawlr/popular.html', context_dict)
+
 def register(request):
     registered = False
 
@@ -72,7 +76,7 @@ def register(request):
 
     return render(request, "Crawlr/register.html",
                   {"user_form" : user_form, "profile_form" : profile_form,
-                   "registred" : registered})
+                   "registered" : registered})
 
 def user_login(request):
     if request.method == "POST":
@@ -94,8 +98,8 @@ def user_login(request):
 
 
 @login_required
-def restricted(request):
-    return render(request, "CrawlR/restricted.html", {})
+def profile(request):
+    return render(request, "CrawlR/profile.html", {})
 
 @login_required
 def user_logout(request):
