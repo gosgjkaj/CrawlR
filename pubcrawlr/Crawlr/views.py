@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
-from rango.forms import UserForm, UserProfileForm
+from Crawlr.forms import UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
-from django.contrib.auth.decorateors import login_required
-from rango.forms import RouteForm
+from django.contrib.auth.decorators import login_required
+from Crawlr.forms import RouteForm
 from Crawlr.models import Route
 
 def home(request):
