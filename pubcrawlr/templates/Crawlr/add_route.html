@@ -1,36 +1,34 @@
-<!DOCTYPE html>
 {% extends 'Crawlr/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
-	Add a CrawlR route
+	About Us
 {% endblock %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'css/add_route.css' %}">
+<script type="text/javascript" href="{% static 'javscript/add_route.js' %}">
+</script>
+
 {% block body_block %}
-<div>
-	{% if category %}
-		{% if user.is_authenticated %}
-			<h1>Add a route to {{category.name}}</h1>
-			<form id='route_form' method='post' action='/Crawlr/category/{{ category.slug }}/add_route/'>
+	
+	
+    <div id="home">
+        <h1>Add a route!</h1>
+        <h1>ABOUT</h1>
+    </div>  
+	 <h3>Find a route</h3>
+	 <div id="floating-panel">
+	<p id ="text">Please enter the bars you wish to add to your crawl. </p>
+      <input id="address" type="textbox" value="Glasgow University Union">
+      <input id="submit" type="button" value="Find bar ">
+	  <input id="directions" type="button" value="Find directions">
+	  <input id="save route" type="button" value="Save route">
+	  
+    </div>
+    <div id="map"></div>
+	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
 
-			{% csrf_token %}
-			{% for hidden in form.hidden_fields %}
-				{{ hidden }}
-			{% endfor %}
+  
+ 
 
-			{% for field in form.visible_fields %}
-				{{ field.errors }}
-				{{ field.help_text }}		
-				{{ field }}
-			{% endfor %}
-			<input type='submit' name='submit' value='Add a Route'/>
-			</form>
-		{% else %}
-			Login to add a route.
-		{% endif %}
-
-	{% else %}
-		The specified category does not exist!
-	{% endif %}
-</div>
 {% endblock %}

@@ -28,7 +28,7 @@ def show_category(request, category_name_slug):
 
     return render(request, 'Crawlr/category.html', context_dict)
 
-def add_route(request):
+def add_route2(request):
     form = RouteForm()
     if request.method == 'POST':
         form = RouteForm(request.POST)
@@ -37,7 +37,11 @@ def add_route(request):
             return index(request)
         else:
             print(form.errors)
-    return render(request, 'Crawlr/add_route.html', {'form':'form'})
+    return render(request, 'Crawlr/add_route2.html', {'form':'form'})
+
+def add_route(request):
+    context_dict ={}
+    return render(request, 'Crawlr/add_route.html', context=context_dict)
 
 def register(request):
     registered = False
