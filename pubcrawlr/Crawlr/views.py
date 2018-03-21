@@ -40,7 +40,7 @@ def add_route2(request):
     return render(request, 'Crawlr/add_route2.html', {'form':'form'})
 
 def add_route(request):
-    context_dict ={}
+    context_dict ={'bla':'bla'}
     return render(request, 'Crawlr/add_route.html', context=context_dict)
 
 def popular(request):

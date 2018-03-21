@@ -180,11 +180,11 @@
                     'Nightmode']
           }
         });
-		
+		directionsDisplay.setMap(map);
 		// Associate the styled map with the MapTypeId and set it to display.
 		map.mapTypes.set('Nightmode', nightMode);
 		map.setMapTypeId('roadmap');
-		directionsDisplay.setMap(map);
+		
  /*        var marker = new google.maps.Marker({
           position: glasgow,
           map: map
@@ -203,7 +203,7 @@
 			calculateAndDisplayRoute(directionsService, directionsDisplay, points);
 			
       });
-	
+	 }
 	  
 	  function displayWaypoints(){
 			document.write(waypts);
@@ -226,6 +226,7 @@
           }
         });
       }
+	  
 	
   function calculateAndDisplayRoute(directionsService, directionsDisplay, points) {
 		console.log("All the stops", points);
@@ -260,8 +261,6 @@
           }
         });
       }
-	  }
 	  
-	   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEx7OIFH1rB8ReeZcVKTnyCoIrpbcQ6I&callback=initMap">
-    </script>
+	  
+	  
