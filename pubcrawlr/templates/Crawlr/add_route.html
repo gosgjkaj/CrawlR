@@ -5,11 +5,11 @@
 	Add a Route
 {% endblock %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/add_route.css' %}">
-<script type="text/javascript" href="{% static 'javscript/add_route.js' %}">
-</script>
 
 {% block body_block %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/add_route.css' %}">
+	<script type="text/javascript" href="{% static 'javascript/add_route.js' %}">
+	</script>
         <h1>Add a route!</h1>
         <h1>ABOUT</h1>
 	 <h3>Find a route</h3>
@@ -19,6 +19,7 @@
       <input id="submit" type="button" value="Find bar ">
 	  <input id="directions" type="button" value="Find directions">
 	  <input id="save route" type="button" value="Save route">
+
 	  
     </div>
     <div id="map"></div>
