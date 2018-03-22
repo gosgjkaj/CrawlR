@@ -1,4 +1,4 @@
-{% extends 'Crawlr/base.html' %}
+<link rel="stylesheet" href="../../static/css/add_route.css">{% extends 'Crawlr/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -9,7 +9,6 @@
 {% block body_block %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/add_route.css" %}">
         <h1>Add a route!</h1>
-        <h1>ABOUT</h1>
 	 <h3>Find a route</h3>
 	  
 	 <div id="floating-panel">
@@ -22,14 +21,18 @@
 	  <style>
        #map {
         height: 400px;
-        width: 100%;
+        width: 60%;
        }
+		  #map_container{
+			  height: 400px;
+			  width: 100%;
+		  }
     </style>
     </div>
-	
+	<div id="map_container">
 	<div id="map"></div>
-	<p>bla</p>
-	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
+	<div id="directions-panel" style="width:30%;height: 425px"></div>
+	</div>
 	<!--<script type="text/javascript" href="{% static 'javascript/add_route.js' %}">-->
 	<script>
 	     function initMap() {
