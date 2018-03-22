@@ -1,4 +1,4 @@
-{% extends 'Crawlr/base.html' %}
+<link rel="stylesheet" href="../../static/css/add_route.css">{% extends 'Crawlr/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -22,14 +22,18 @@
 	  <style>
        #map {
         height: 400px;
-        width: 100%;
+        width: 60%;
        }
+		  #map_container{
+			  height: 400px;
+			  width: 100%;
+		  }
     </style>
     </div>
-	
+	<div id="map_container">
 	<div id="map"></div>
 
-	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
+	<div id="directions-panel" style="width:30%;height 425px"></div>
 	<div>
 	<!-- {% if category %}
 		{% if user.is_authenticated %}
@@ -56,6 +60,10 @@
 		The specified category does not exist!
 	{% endif %} -->
 </div>
+
+	<div id="directions-panel" style="width:30%;height: 425px"></div>
+	</div>
+
 	<!--<script type="text/javascript" href="{% static 'javascript/add_route.js' %}">-->
 	<script>
 	     function initMap() {
