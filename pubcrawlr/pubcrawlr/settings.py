@@ -19,9 +19,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static/'),
-)
+STATICFILES_DIRS = [STATIC_DIR, ]
 MEDIA_ROOT = MEDIA_DIR
 
 
@@ -108,6 +106,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS': { 'min_length': 8, }
+    },
+    
 ]
 
 

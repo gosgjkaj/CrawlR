@@ -3,13 +3,12 @@ from django.contrib.auth.models import User
 from Crawlr.models import Category, Route, UserProfile
 
 class RouteForm(forms.ModelForm):
-    title = forms.CharField(max_length=128,
-    help_text="Enter crawl name:")
-    views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    title = forms.CharField(max_length=128, help_text="Enter crawl name:")
+    likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = Route
-        exclude = ('category',)
+        fields = ('name', 'category',)
 
     def clean(self):
         cleaned_data = self.cleaned_data
@@ -20,6 +19,15 @@ class RouteForm(forms.ModelForm):
             cleaned_data['url'] = url
 
             return cleaned_data
+
+class CategoryForm(forms.ModelForm):
+    name = forms.CharField(max_length=128, help_text="Please enter the category name.")
+    likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+
+    class Meta:
+        model = Category
+        fields = ('name',)
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())

@@ -9,13 +9,16 @@
 {% block body_block %}
 <div>
 	Popular Routes by ranking
+	<div>
+	{% if routes %}
 	<ul>
-		
-		<li><a href="all.html">Of all time</a></li>
-		<li><a href="north.html">This week</a></li>
-		<li><a href="south.html">This month</a></li>
-
+		{% for route in routes %}
+			<li>{{ route.name }}</li>
+		{% endfor %}
 	</ul>
+	{% else %}
+		No routes to display.
+	{% endif %}
 </div>
 
 {% endblock %}

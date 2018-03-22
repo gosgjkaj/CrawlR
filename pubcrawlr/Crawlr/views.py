@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
-from Crawlr.forms import UserForm, UserProfileForm
+from Crawlr.forms import UserForm, UserProfileForm, RouteForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from Crawlr.forms import RouteForm
-from Crawlr.models import Route
+from Crawlr.models import Route, Category
 
 def home(request):
     context_dict = {}
@@ -29,22 +28,33 @@ def show_category(request, category_name_slug):
     return render(request, 'Crawlr/category.html', context_dict)
 
 def add_route2(request):
-    form = RouteForm()
+    try:
+        category = Category.objects.get(slug=category_name_slug)
+    except Category.DoesNotExist:
+        category = None
+        form = RouteForm()
     if request.method == 'POST':
         form = RouteForm(request.POST)
         if form.is_valid():
-            form.save(commit=True)
-            return index(request)
+            if category:
+                route = form.save(commit=False)
+                route.category = category
+                route.likes = 0
+                route.save()
+                return show_category(request, category_name_slug)
         else:
             print(form.errors)
-    return render(request, 'Crawlr/add_route2.html', {'form':'form'})
+            
+    context_dict = {'form':form, 'category':category}
+    return render(request, 'Crawlr/add_route2.html', context_dict)
 
 def add_route(request):
     context_dict ={}
     return render(request, 'Crawlr/add_route.html', context=context_dict)
 
 def popular(request):
-    context_dict = {}
+    route_list = Route.objects.order_by('-likes')[:5]
+    context_dict = {'routes': route_list}
     return render(request, 'Crawlr/popular.html', context_dict)
 
 def register(request):
@@ -75,8 +85,8 @@ def register(request):
         profile_form = UserProfileForm()
 
     return render(request, "Crawlr/register.html",
-                  {"user_form" : user_form, "profile_form" : profile_form,
-                   "registered" : registered})
+                  {"user_form": user_form, "profile_form": profile_form,
+                   "registered": registered})
 
 def user_login(request):
     if request.method == "POST":
@@ -86,7 +96,7 @@ def user_login(request):
 
         if user:
             if user.is_active:
-                login(request,user)
+                login(request, user)
                 return HttpResponseRedirect(reverse("home"))
             else:
                 return HttpResponse("Your CrawlR account is disabled")

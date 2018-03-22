@@ -9,12 +9,12 @@
 {% block body_block %}
 	<h1>Register for CrawlR</h1>
 	{% if registered %}
-		Welcome to CrawlR!
+		Thank you for registering!
 		<a href='{% url 'home' %}'>Return to the homepage.</a><br />
 	{% else %}
 		Register here!<br />
-		<form id='user_form' method='post' action='{% url 'register' %}'
-			enctype='multipart/form-data'>
+		<form id="user_form" method="post" action="{% url 'register' %}"
+			enctype="multipart/form-data">
 
 		{% csrf_token %}
 
