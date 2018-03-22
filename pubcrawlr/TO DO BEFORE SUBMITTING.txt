@@ -4,3 +4,4 @@
 - CSS
 - make sure code is readable, clear, and commented where necessary
 - create unit tests
+- if time, make users able to view and delete their profiles

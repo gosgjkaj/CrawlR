@@ -3,42 +3,49 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE','pubcrawlr.settings')
 
 import django
 django.setup()
-from Crawlr.models import Category, Page
+from Crawlr.models import Category, Route
 
 def populate():
-    python_pages = [
-        {"title": "Official Python Tutorial","url":"http://docs.python.org/2/tutorial/"},
-        {"title":"How to Think like a Computer Scientist","url":"http://www.greenteapress.com/thinkpython/"},
-        {"title":"Learn Python in 10 Minutes","url":"http://www.korokithakis.net/tutorials/python/"} ]
+    north = [
+        {"insert example north route"} ]
 
-    django_pages = [
-        {"title":"Official Django Tutorial","url":"https://docs.djangoproject.com/en/1.9/intro/tutorial01/"},
-        {"title":"Django Rocks","url":"http://www.djangorocks.com/"},
-        {"title":"How to Tango with Django","url":"http://www.tangowithdjango.com/"} ]
+    south = [
+        {"insert example south route"} ]
 
-    other_pages = [
-        {"title":"Bottle","url":"http://bottlepy.org/docs/dev/"},
-        {"title":"Flask","url":"http://flask.pocoo.org"} ]
+    east = [
+        {"insert example east route"} ]
 
-    cats = {"Python": {"pages": python_pages},
-    "Django": {"pages": django_pages},
-    "Other Frameworks": {"pages": other_pages} }
+    west = [
+        {"insert example west route"} ]
+
+    centre = [
+        {"insert example centre route"} ]
+
+    sub = [
+        {"insert example subcrawl route"} ]
+
+    cats = {"North": {"Routes": north},
+        "South": {"Routes": south},
+        "East": {"Routes": east},
+        "West": {"Routes": west},
+        "Centre": {"Routes": centre},
+        "Subcrawl": {"Routes": sub},}
 
     for cat, cat_data in cats.items():
         c = add_cat(cat)
-        for p in cat_data["pages"]:
-            add_page(c, p["title"], p["url"])
+        for r in cat_data["Routes"]:
+            add_route(c, r["title"], r["url"])
 
     for c in Category.objects.all():
-        for p in Page.objects.filter(category=c):
-            print("- {0} - {1}".format(str(c), str(p)))
+        for r in Route.objects.filter(category=c):
+            print("- {0} - {1}".format(str(c), str(r)))
 
-def add_page(cat, title, url, views=0):
-    p = Page.objects.get_or_create(category=cat, title=title)[0]
-    p.url=url
-    p.views=views
-    p.save()
-    return p
+def add_route(cat, title, url, views=0):
+    r = Route.objects.get_or_create(category=cat, title=title)[0]
+    r.url=url
+    r.views=views
+    r.save()
+    return r
 
 def add_cat(name):
     c = Category.objects.get_or_create(name=name)[0]
