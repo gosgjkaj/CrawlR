@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
-from Crawlr.forms import UserForm, UserProfileForm, RouteForm, CategoryForm
+from Crawlr.forms import UserForm, UserProfileForm, RouteForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -28,11 +28,11 @@ def show_category(request, category_name_slug):
     return render(request, 'Crawlr/category.html', context_dict)
 
 def add_route2(request):
-        try:
+    try:
         category = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
         category = None
-    form = RouteForm()
+        form = RouteForm()
     if request.method == 'POST':
         form = RouteForm(request.POST)
         if form.is_valid():

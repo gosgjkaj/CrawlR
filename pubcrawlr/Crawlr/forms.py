@@ -5,7 +5,6 @@ from Crawlr.models import Category, Route, UserProfile
 class RouteForm(forms.ModelForm):
     title = forms.CharField(max_length=128, help_text="Enter crawl name:")
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-    slug = forms.CharField(widget=forms.HiddentInput(), required=False)
 
     class Meta:
         model = Route
@@ -31,4 +30,4 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('picture')
+        fields = ('website', 'picture')
