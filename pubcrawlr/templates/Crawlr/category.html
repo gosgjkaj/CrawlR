@@ -9,19 +9,20 @@
 {% block body_block %}
 <h3>Pubcrawl Categories</h3>
 	<div id="body">
-	By Location
-	<ul>
-		<li><a href="citycentre.html">City Centre</a></li>
-		<li><a href="east.html">East</a></li>
-		<li><a href="west.html">West</a></li>
-		<li><a href="north.html">North</a></li>
-		<li><a href="south.html">South</a></li>
-
-	</ul>
-	By type
-	<ul>
-		<li><a href="subcrawl.html">Subcrawl</a></li>
-	</ul>
+	{% if category %}
+		<h1>{{ category.name }}</h1>
+		{% if routes %}
+			<ul>
+			{% for route in routes %}
+				<li><a href ="{{ route.url }}">{{ page.title }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			No routes in {{ category.name }}
+		{% endif %}
+	{% else %}
+		This category does not exist!
+	{% endif %}
 
 	</div>
 

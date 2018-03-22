@@ -1,19 +1,18 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Login</title>  
-    <link rel="stylesheet" type="text/css" href="Login.css"/>  
-</head>  
-<body>  
-    <div id="login">
-        <h1>Welcome! Please login! </h1>  
-        <form method="post">  
-            <input type="text" required="required" placeholder="Username" name="u"></input>  
-            <input type="password" required="required" placeholder="Password" name="p"></input>  
-            <button class="but" type="submit">Sign In</button>
-	        <button class="but" type="submit">Sign Up</button>  
-        </form>  
-    </div>  
-</body>  
-</html>
+{% extends 'Crawlr/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+	Login
+{% endblock %}
+
+{% block body_block %}
+	<h1>Login to Crawlr</h1>
+	<form id="login_form" method="post" action="{% url 'login' %}">
+		{% csrf_token %}
+		Username: <input type="text" name="username" value="" size="50" />
+		<br />
+		Password: <input type="password" name="password" value="" size="50" />
+		<br />
+		<input type="submit" value="submit" />
+	</form>
+{% endblock %}
