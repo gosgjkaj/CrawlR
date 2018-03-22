@@ -8,17 +8,10 @@
 
 {% block body_block %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/add_route.css" %}">
-        <h1>Add a route!</h1>
+        <h1>View {{ Route.name }} </h1>
 
-	 <h3>Find a route</h3>
+
 	  
-	 <div id="floating-panel">
-	<p id ="text">Please enter the bars you wish to add to your crawl. </p>
-      <input id="address" type="textbox" value="Glasgow University Union">
-      <input id="submit" type="button" value="Find bar ">
-	  <input id="directions" type="button" value="Find directions">
-
-
 	  <style>
        #map {
         height: 400px;
@@ -30,32 +23,6 @@
 	<div id="map"></div>
 
 	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
-	<div>
-	{% if category %}
-		{% if user.is_authenticated %}
-			<h1>Add a route to {{ category.name }}</h1>
-			<form id='route_form' method='post' action='/Crawlr/category/{{ category.slug }}/add_route/'>
-
-			{% csrf_token %}
-			{% for hidden in form.hidden_fields %}
-				{{ hidden }}
-			{% endfor %}
-
-			{% for field in form.visible_fields %}
-				{{ field.errors }}
-				{{ field.help_text }}		
-				{{ field }}
-			{% endfor %}
-			<input type='submit' name='submit' value='Add a Route'/>
-			</form>
-		{% else %}
-			Login to add a route.
-		{% endif %}
-
-	{% else %}
-		The specified category does not exist!
-	{% endif %}
-</div>
 	<!--<script type="text/javascript" href="{% static 'javascript/add_route.js' %}">-->
 	<script>
 	     function initMap() {
@@ -245,30 +212,15 @@
 		map.mapTypes.set('Nightmode', nightMode);
 		map.setMapTypeId('roadmap');
 		directionsDisplay.setMap(map);
- /*        var marker = new google.maps.Marker({
-          position: glasgow,
-          map: map
-        }); */
-		 
-		 // Using geocoding to find a pub or bar 
-		 // Will extend for up to 22 other bars / waypoints
-		 // Then submit to retrieve google maps directions json fileCreatedDate
+
 		 var points = [];
 		 var geocoder = new google.maps.Geocoder();
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map, points);
-        });
-		
-		document.getElementById('directions').addEventListener('click', function(){
-			calculateAndDisplayRoute(directionsService, directionsDisplay, points);
-			
-      });
+
+		calculateAndDisplayRoute(directionsService, directionsDisplay)
+
 	 }
 	  
-	  function displayWaypoints(){
-			document.write(waypts);
-	  
-	  }
+
 	  
       function geocodeAddress(geocoder, resultsMap, points) {
         var address = document.getElementById('address').value + "glasgow";
@@ -288,27 +240,15 @@
       }
 	  
 	
-  function calculateAndDisplayRoute(directionsService, directionsDisplay, points) {
-		console.log("All the stops", points);
-		var start = points.shift();
-		console.log("Start: ",start);
-		var end = points.pop();
-		console.log("End:" , end);
-		console.log("Waypoints (points)" ,points);
-        var waypts = [];
-        for (var i = 0; i < points.length; i++) {
-            waypts.push({ location: points[i]});
-          
-        }
+  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 		
 		
-		console.log("Waypoints (waypts)" , waypts);
-		var request = {
-		origin: start,
-		destination: end,
-		waypoints: waypts,
-		travelMode: 'WALKING'
-		};
+		
+		
+
+		var test_thing = {"origin":"Glasgow University Unionglasgow","destination":"bank streetglasgow","waypoints":[{"location":"qmuglasgow"},{"location":"brelglasgow"},{"location":"coopersglasgow"},{"location":"dramglasgow"}],"travelMode":"WALKING"};
+		var request = JSON.parse(test_thing);
+		console.log(request);
         directionsService.route(request, function(response, status) {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);

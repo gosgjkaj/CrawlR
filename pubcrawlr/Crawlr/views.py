@@ -43,6 +43,11 @@ def add_route(request):
     context_dict ={'bla':'bla'}
     return render(request, 'Crawlr/add_route.html', context=context_dict)
 
+def route(request):
+    context_dict ={}
+    return render(request,'Crawlr/route.html', context=context_dict)
+
+
 def popular(request):
     context_dict = {}
     return render(request, 'Crawlr/popular.html', context_dict)
