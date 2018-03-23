@@ -1,0 +1,20 @@
+{% extends 'crawlr/base.html' %}
+{% load staticfiles %}
+
+
+    {% block title_block %}
+       About
+    {% endblock %}
+
+{% block body_block %}
+<h1> This tutorial has been put together by Ryan Devoil, rango says here is the about page</h1><br />
+Visits: {{visits}}
+
+
+<div>
+    <img src="{{ MEDIA_URL }}cat.jpg"
+    alt="Cat." />
+    <img src="{%static "images/possum.jpg" %}"
+    alt="Possum." />
+</div>
+{% endblock %}
