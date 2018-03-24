@@ -7,8 +7,7 @@ Add a route
 
 
 {% block body_block %}
-    {% if category %}
-    <form id="route_form" method="post" action="{% url 'add_route' category.slug %}">
+    <form id="route_form" method="post" action="{% url 'add_route' %}">
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
     {{hidden}}
@@ -20,5 +19,4 @@ Add a route
     {% endfor %}
     <input type="submit" name="submit" value="Add Route" />
     </form>
-    {% else %} A category by this name doesn't exist {% endif %}
 {% endblock %}
