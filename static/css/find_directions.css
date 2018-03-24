@@ -17,7 +17,7 @@
 	    #floating-panel {
 	    margin-left: auto;
 		margin-right: auto;
-		width:40%;
+		width:50%;
         background-color: #fff;
         padding: 5px;
         border: 1px solid #999;
@@ -65,3 +65,8 @@
 		width:40%;
 		overflow:scroll;
       }
+
+      #save{
+          display:none;
+      }
+

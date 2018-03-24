@@ -14,14 +14,26 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 class RouteForm(forms.ModelForm):
+    LOCATION_CHOICES = [
+        ('West end','West end'),
+        ('City Centre', 'City Centre'),
+        ('North', 'North'),
+        ('East end', 'East end'),
+        ('South side', 'South side'),
+    ]
     title = forms.CharField(max_length=128,
                             help_text = "Please enter the name of the Crawl")
    
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    #Hidden inputs for the variables retrieved from find directions page
     start = forms.IntegerField(widget=forms.HiddenInput())
     end = forms.IntegerField(widget=forms.HiddenInput())
-    waypts = forms.IntegerField(widget=forms.HiddenInput())
+    waypts = forms.TextField(widget=forms.HiddenInput())
+    #Location choice, a drop down menu selection
+    location_choice = forms.CharField(label="What is the location of this crawl?",
+    widget=forms.Select(choices=LOCATION_CHOICES))
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+
     
     class Meta:
         model = Route

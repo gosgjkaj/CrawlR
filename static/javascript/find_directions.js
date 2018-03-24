@@ -200,7 +200,9 @@
         });
 		
 		document.getElementById('directions').addEventListener('click', function(){
+
 			calculateAndDisplayRoute(directionsService, directionsDisplay, points);
+
 			
       });
 	
@@ -209,7 +211,8 @@
 			document.write(waypts);
 	  
 	  }
-	  
+
+
       function geocodeAddress(geocoder, resultsMap, points) {
         var address = document.getElementById('address').value + "glasgow";
         geocoder.geocode({'address': address}, function(results, status) {
@@ -265,17 +268,44 @@
           optimizeWaypoints: true,
           travelMode: 'WALKING'
         };
+
         directionsService.route(request, function(response, status) {
 	
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
 			var ser = JSON.stringify(request);
 			console.log(ser);
+			// Get the save button
+			var saveButton = document.getElementById('save');
+            // Display the save button since a route has been found
+			saveButton.style.display = 'block';
+			// Save route
+
+		document.getElementById('save').addEventListener('click', function(){
+
+			saveRoute(start,end,waypts);
+
+
+      });
+
+
+
+
            
            
           } else {
             window.alert('Directions request failed due to ' + status);
           }
         });
+      }
+
+      function saveRoute(start, end, waypts){
+          sessionStorage.setItem('start', start);
+          sessionStorage.setItem('end', end);
+          sessionStorage.setItem('waypts', JSON.stringify(waypts));
+          window.location.href="/crawlr/save_route"
+
+
+
       }
 	  
