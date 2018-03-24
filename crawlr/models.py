@@ -24,11 +24,21 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
-class Page(models.Model):
+class Route(models.Model):
     category = models.ForeignKey(Category)
-    title = models.CharField(max_length=128)
-    url = models.URLField()
+    title = models.CharField(max_length=128, unique = True)
+    slug = models.SlugField(unique=True)
     views = models.IntegerField(default=0)
+    start = models.CharField(max_length=200)
+    end = models.CharField(max_length=200)
+    waypts = models.TextField()
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Route, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name_plural = 'Routes'
 
     def __str__(self):
         return self.title

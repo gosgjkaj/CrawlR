@@ -3,45 +3,58 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'website_project.settings')
 
 import django
 django.setup()
-from crawlr.models import Category, Page
+from crawlr.models import Category, Route
 
 def populate():
-    python_pages = [{"title": "Official Python Tutorial", "url":"http://docs.python.org/2/tutorial/"},
-                   {"title":"How to Think Like a Computer Scientist","url":"http://www.greenteapress.com/thinkpython/"},
-                   {"title":"Learn Python in 10 Minutes","url":"http://www.korokithakis.net/tutorials/python/"}]
+    west_end_routes = [{"title": "An example crawl1", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
+                 "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
+                 "category":"west end"},]
 
 
-    django_pages = [{"title":"Official Django Tutorial","url":"https://docs.djangoproject.com/en/1.9/intro/tutorial01/"},
-                    {"title":"Django Rocks","url":"http://www.djangorocks.com/"},
-                    {"title":"How to Tango With Django","url":"http://www.tangowithdjango.com/"}]
+    city_centre_routes = [{"title": "An example crawl2", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
+                 "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
+                 "category":"city centre"},]
 
 
-    other_pages = [{"title":"Bottle","url":"http://bottlepy.org/docs/dev/"},
-                   {"title":"Flask","url":"http://flask.pocoo.org"}]
+    north_routes = [{"title": "An example crawl3", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
+                 "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
+                 "category":"north"},]
 
+    east_end_routes = [{"title": "An example crawl4", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
+                 "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
+                 "category":"east end"},]
 
-    cats = {"Python": {"pages": python_pages,"views":128,"likes":64},
-            "Django": {"pages":django_pages,"views":64,"likes":32},
-            "Other Frameworks": {"pages":other_pages,"views":32,"likes":16}}
+    south_side_routes = [{"title": "An example crawl5", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
+                 "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
+                 "category":"south side "},]
+              
+    cats = {"West end": {"routes": west_end_routes,"views":128,"likes":64},
+            "City Centre": {"routes":city_centre_routes,"views":64,"likes":32},
+            "North": {"routes":north_routes,"views":32,"likes":16},
+            "East end": {"routes":east_end_routes,"views":0,"likes":0},
+            "South side": {"routes":south_side_routes,"views":0, "likes":0}}
 
-    page_views = 65536
+            
+
     for cat, cat_data in cats.items():
         c = add_cat(cat, cat_data["views"], cat_data["likes"])
-        for p in cat_data["pages"]:
-            add_page(c, p["title"], p["url"], page_views)
-            page_views = page_views/2
+        for r in cat_data["routes"]:
+            add_route(c, r["title"], r["start"],r["end"],r["waypts"], 0)
+
 
 
     for c in Category.objects.all():
-        for p in Page.objects.filter(category=c):
+        for p in Route.objects.filter(category=c):
             print("- {0} - {1}".format(str(c), str(p)))
 
-def add_page(cat, title, url, views=0):
-    p = Page.objects.get_or_create(category=cat, title=title)[0]
-    p.url=url
-    p.views=views
-    p.save()
-    return p
+def add_route(cat, title, start, end, waypts, views=0):
+    r = Route.objects.get_or_create(category=cat, title=title)[0]
+    r.start = start
+    r.end = end
+    r.waypts = waypts
+    r.views=views
+    r.save()
+    return r
 
 def add_cat(name, views, likes):
     c = Category.objects.get_or_create(name=name)[0]

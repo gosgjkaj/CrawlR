@@ -1,5 +1,5 @@
 from django import forms
-from crawlr.models import Page, Category, UserProfile
+from crawlr.models import Route, Category, UserProfile
 from django.contrib.auth.models import User
 
 class CategoryForm(forms.ModelForm):
@@ -13,15 +13,18 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ('name',)
 
-class PageForm(forms.ModelForm):
+class RouteForm(forms.ModelForm):
     title = forms.CharField(max_length=128,
-                            help_text = "Please enter the title of the page.")
-    url = forms.URLField(max_length=200,
-                         help_text = "Please enter the URL of the page.")
+                            help_text = "Please enter the name of the Crawl")
+   
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-
+    start = forms.IntegerField(widget=forms.HiddenInput())
+    end = forms.IntegerField(widget=forms.HiddenInput())
+    waypts = forms.IntegerField(widget=forms.HiddenInput())
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+    
     class Meta:
-        model = Page
+        model = Route
         exclude = ('category',)
 
 class UserForm(forms.ModelForm):

@@ -24,16 +24,16 @@
     <strong>There are no categories present.</strong>
     {% endif %}
 </div>
-<h2>Most Viewed Pages</h2>
+<h2>Most Viewed Routes</h2>
 <div>
-    {% if pages %}
+    {% if routes %}
     <ul>
-        {% for page in pages %}
-        <li><a href ="{{ page.url }}">{{ page.title }}</a></li>
+        {% for route in routes %}
+        <li><a href = "{% url 'show_route' route.slug %}"">{{ route.title }}</a></li>
         {% endfor %}
     </ul>
     {% else %}
-    <strong>There are no pages present</strong>
+    <strong>There are no routes present</strong>
     {% endif %}
      <img src="{%static "images/rango.jpg" %}" alt="Rango!" /><br/>
     Visits: {{visits}}

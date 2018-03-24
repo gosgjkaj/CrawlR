@@ -6,16 +6,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from crawlr.models import Category, Page
-from crawlr.forms import CategoryForm, PageForm, UserForm, UserProfileForm
+from crawlr.models import Category, Route
+from crawlr.forms import CategoryForm, RouteForm, UserForm, UserProfileForm
 
 def index(request):
     #A dictionary providing context for the template engine
     #Orders categories by likes in descending order, retrieves
     #the top 5, or all if less than 5
     category_list = Category.objects.order_by('-likes')[:5]
-    page_list = Page.objects.order_by('-views')[:5]
-    context_dict = {'categories': category_list, 'pages': page_list}
+    route_list = Route.objects.order_by('-views')[:5]
+    context_dict = {'categories': category_list, 'routes': route_list}
 
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session['visits']
@@ -34,13 +34,23 @@ def show_category(request, category_name_slug):
     context_dict = {}
     try:
         category = Category.objects.get(slug=category_name_slug)
-        pages = Page.objects.filter(category=category)
-        context_dict['pages']= pages
+        routes = Route.objects.filter(category=category)
+        context_dict['routes']= routes
         context_dict['category']= category
     except Category.DoesNotExist:
-        context_dict['pages']= None
+        context_dict['route']= None
         context_dict['category']= None
     return render(request, 'crawlr/category.html', context_dict)
+
+def show_route(request, route_name_slug):
+    context_dict = {}
+    try:
+        route = Route.objects.get(slug=route_name_slug)
+        context_dict['route']= route
+    except Category.DoesNotExist:
+        context_dict['route']= None
+    return render(request, 'crawlr/route.html', context=context_dict)
+        
 
 @login_required
 def add_category(request):
@@ -55,25 +65,25 @@ def add_category(request):
     return render(request, 'crawlr/add_category.html', {'form':form})
 
 @login_required
-def add_page(request, category_name_slug):
+def add_route(request, category_name_slug):
     try:
         category = Category.objects.get(slug=category_name_slug)
     except Category.DoesNotExist:
-        categpry = None
-    form = PageForm()
+        category = None
+    form = RouteForm()
     if request.method == 'POST':
-        form = PageForm(request.POST)
+        form = RouteForm(request.POST)
         if form.is_valid():
             if category:
-                page = form.save(commit=False)
-                page.category = category
-                page.views = 0
-                page.save()
+                route = form.save(commit=False)
+                route.category = category
+                route.views = 0
+                route.save()
                 return show_category(request, category_name_slug)
         else:
             print(form.errors)
     context_dict = {'form':form, 'category':category}
-    return render(request, 'crawlr/add_page.html', context_dict)
+    return render(request, 'crawlr/add_route.html', context_dict)
 
 def register(request):
     registered = False
