@@ -1,0 +1,61 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
+#app{
+    background-color: #EDF4ED;
+    width: 900px;
+    display: block;
+    margin: 60px;
+}
+
+.footer{
+    display: flex;
+    float: left;
+    padding-right: 40px;
+}
+
+.footer li{
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #edf4ed
+}
+
+.footer li a{
+    color :#999;
+    text-decoration: none;
+}
+
+.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #595959;
+}
+
+.sidebar, .sidebar2, .ex {
+    float: left;
+}
+
+.sidebar a, .sidebar2 a, .ex a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.sidebar a, .sidebar2 a, .ex a :hover {
+    background-color: #009933;
+}
+
