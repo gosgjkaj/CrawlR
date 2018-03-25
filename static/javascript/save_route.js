@@ -1,11 +1,34 @@
-  function initMap() {
+function sendStuff() {
+// Get the variables from find_directions (session storage)
+    var start = sessionStorage.getItem('start');
+    var end = sessionStorage.getItem('end');
+    var waypts = sessionStorage.getItem('waypts');
+
+// Put the waypoints into a comma seperated string for the database
+    var waypts_sorted = waypts.join(",");
+
+// Console logs for testing
+    console.log("Start", start);
+    console.log("End", end);
+    console.log("Waypoints for database", waypts_sorted);
+
+// Put values into django hidden fields in form
+    document.getElementById("id_start").value = start;
+    document.getElementById("id_end").value = end;
+    document.getElementById("id_waypts").value = waypts_sorted;
+
+
+}
+
+function initMap() {
+        sendStuff()
 		var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
-		
+
 		  directionsDisplay.setPanel(document.getElementById('directions-panel'));
 		  directionsDisplay.setMap(map);
-		
-	
+		calculateAndDisplayRoute(directionsService, directionsDisplay);
+
 		  var nightMode = new google.maps.StyledMapType(
 		  [
   {
@@ -180,7 +203,7 @@
                     'Nightmode']
           }
         });
-		
+
 		// Associate the styled map with the MapTypeId and set it to display.
 		map.mapTypes.set('Nightmode', nightMode);
 		map.setMapTypeId('roadmap');
@@ -189,78 +212,26 @@
           position: glasgow,
           map: map
         }); */
-		 
-		 // Using geocoding to find a pub or bar 
+
+		 // Using geocoding to find a pub or bar
 		 // Will extend for up to 22 other bars / waypoints
 		 // Then submit to retrieve google maps directions json fileCreatedDate
-		 var points = [];
+
 		 var geocoder = new google.maps.Geocoder();
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map, points);
-        });
-		
-		document.getElementById('directions').addEventListener('click', function(){
-
-			calculateAndDisplayRoute(directionsService, directionsDisplay, points);
-
-			
-      });
-	
-	  
-	  function displayWaypoints(){
-			document.write(waypts);
-	  
-	  }
 
 
-      function geocodeAddress(geocoder, resultsMap, points) {
-        var address = document.getElementById('address').value + "glasgow";
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === 'OK') {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
-			
-			points.push(address);
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
-        });
-      }
-	function calcRoute() {
-  
-  var request = {
-    origin: start,
-    destination: end,
-	waypoints: waypts,
-    travelMode: 'WALKING'
-	
-  };
-  document.alert(waypts);
-  directionsService.route(request, function(result, status) {
-    if (status == 'OK') {
-      directionsDisplay.setDirections(result);
-    }
-  });
-}
+
+
+
  }
-  function calculateAndDisplayRoute(directionsService, directionsDisplay, points) {
-		console.log("All the stops", points);
-		var start = points.shift();
-		console.log("Start: ",start);
-		var end = points.pop();
-		console.log("End:" , end);
-		console.log("Waypoints (points)" ,points);
-        var waypts = [];
-        for (var i = 0; i < points.length; i++) {
-            waypts.push({ location: points[i]});
-          
-        }
-		
-		
-		console.log("Waypoints (waypts)" , waypts);
+  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+       var wayptsString = sessionStorage.getItem('waypts_formap');
+       var waypts = JSON.parse(wayptsString);
+		console.log("Waypoints correct",waypts);
+
+
+
+
 		var request = {
           origin: start,
           destination: end,
@@ -268,45 +239,16 @@
           optimizeWaypoints: true,
           travelMode: 'WALKING'
         };
-
         directionsService.route(request, function(response, status) {
-	
+
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
 			var ser = JSON.stringify(request);
-			console.log(ser);
-			// Get the save button
-			var saveButton = document.getElementById('save');
-            // Display the save button since a route has been found
-			saveButton.style.display = 'block';
-			// Save route
-
-		document.getElementById('save').addEventListener('click', function(){
-
-			saveRoute(start,end,waypts, points);
-
-
-      });
 
 
 
-
-           
-           
           } else {
             window.alert('Directions request failed due to ' + status);
           }
         });
       }
-
-      function saveRoute(start, end, waypts, points){
-          sessionStorage.setItem('start', start);
-          sessionStorage.setItem('end', end);
-          sessionStorage.setItem('waypts', points);
-          sessionStorage.setItem('waypts_formap', JSON.stringify(waypts));
-          window.location.href="/crawlr/save_route"
-
-
-
-      }
-	  

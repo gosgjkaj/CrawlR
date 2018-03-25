@@ -26,9 +26,9 @@ class RouteForm(forms.ModelForm):
    
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     #Hidden inputs for the variables retrieved from find directions page
-    start = forms.IntegerField(widget=forms.HiddenInput())
-    end = forms.IntegerField(widget=forms.HiddenInput())
-    waypts = forms.TextField(widget=forms.HiddenInput())
+    start = forms.CharField(widget=forms.HiddenInput())
+    end = forms.CharField(widget=forms.HiddenInput())
+    waypts = forms.CharField(widget=forms.HiddenInput())
     #Location choice, a drop down menu selection
     location_choice = forms.CharField(label="What is the location of this crawl?",
     widget=forms.Select(choices=LOCATION_CHOICES))

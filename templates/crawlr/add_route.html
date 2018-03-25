@@ -4,10 +4,22 @@
 {% block title_block %}
 Add a route 
 {% endblock %}
-
-
+<style>
+       #map {
+        height: 400px;
+        width: 60%;
+       }
+		  #map_container{
+			  height: 400px;
+			  width: 100%;
+		  }
+    </style>
+	<script src="{% static "javascript/save_route.js" %}"></script>
+	   <link rel="stylesheet" href="{% static 'css/save_route.css' %}" type="text/css">
+	<script src="{% static "javascript/save_route.js" %}"></script>
 {% block body_block %}
-    <form id="route_form" method="post" action="{% url 'add_route' %}" enctype="multipart/form-data" >
+<div id="floating-panel">
+    <form id="route_form" method="post" action="{% url 'add_route' %}" 	>
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
     {{ hidden }}
@@ -20,3 +32,13 @@ Add a route
     <input type="submit" name="submit" value="Save Route" />
     </form>
 {% endblock %}
+
+<div id="map-container">
+    <div id="map"></div>
+	<div id="directions-panel"></div>
+
+</div>
+		</div>
+   <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEx7OIFH1rB8ReeZcVKTnyCoIrpbcQ6I&callback=initMap">
+    </script>
