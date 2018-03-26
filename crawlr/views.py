@@ -50,7 +50,11 @@ def show_route(request, route_name_slug):
     except Category.DoesNotExist:
         context_dict['route']= None
     return render(request, 'crawlr/route.html', context=context_dict)
-        
+
+def find_directions(request):
+    context_dict = {}
+    return render(request, 'crawlr/find_directions.html', context=context_dict)
+
 
 @login_required
 def add_category(request):
@@ -65,25 +69,16 @@ def add_category(request):
     return render(request, 'crawlr/add_category.html', {'form':form})
 
 @login_required
-def add_route(request, category_name_slug):
-    try:
-        category = Category.objects.get(slug=category_name_slug)
-    except Category.DoesNotExist:
-        category = None
+def add_route(request):
     form = RouteForm()
     if request.method == 'POST':
         form = RouteForm(request.POST)
         if form.is_valid():
-            if category:
-                route = form.save(commit=False)
-                route.category = category
-                route.views = 0
-                route.save()
-                return show_category(request, category_name_slug)
+            form.save(commit=True)
+            return index(request)
         else:
             print(form.errors)
-    context_dict = {'form':form, 'category':category}
-    return render(request, 'crawlr/add_route.html', context_dict)
+    return render(request, 'crawlr/add_route.html', {'form':form})
 
 def register(request):
     registered = False

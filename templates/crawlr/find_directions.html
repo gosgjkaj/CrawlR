@@ -1,0 +1,33 @@
+{% extends 'crawlr/base.html' %}
+{% load staticfiles %}
+{% block body_block %}
+<h1>Find directions for a crawl </h1>
+
+
+
+    <link rel="stylesheet" href="{% static 'css/find_directions.css' %}" type="text/css">
+	<script src="{% static "javascript/find_directions.js" %}"></script>
+    <h3>Find directions for a route </h3>
+    <div id="map-container">
+	<div id="floating-panel">
+	<p id ="text">Please enter the bars you wish to add to your crawl. </p>
+      <input id="address" type="textbox" value="Glasgow University Union">
+      <input id="submit" type="button" value="Find bar ">
+	  <input id="directions" type="button" value="Find directions">
+                   <input id="save" type="button" value="Save route">
+
+
+
+    </div>
+	</div>
+    <div id="map"></div>
+	<div id="directions-panel"></div>
+
+	</div>
+
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEx7OIFH1rB8ReeZcVKTnyCoIrpbcQ6I&callback=initMap">
+    </script>
+
+{% endblock %}
