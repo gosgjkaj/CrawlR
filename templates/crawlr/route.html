@@ -2,38 +2,24 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<h1>{{ route.title }}</h1>
+<link rel="stylesheet" type="text/css" href="{% static "css/show_route.css" %}">
+<script src="{% static "javascript/show_route.js" %}"></script>
+<div>
+<h1>{{ route.category }}</h1>
 </div>
 
-<h2>{{ route.name }}</h2>
-<style>
-       #map {
-        height: 400px;
-        width: 60%;
-       }
-		  #map_container{
-			  height: 400px;
-			  width: 100%;
-		  }
-    </style>
-    </div>
+<div>
+<h2>{{ route.title }}</h2>
+</div>
 
 <div>
-	<link rel="stylesheet" type="text/css" href="{% static "css/show_route.css" %}">
-	<script src="{% static "javascript/show_route.js" %}"></script>
 	<script>
 		var start = "{{ route.start }}";
 		var end = "{{ route.end }}";
 		var waypts_string = "{{ route.waypts }}";
 	</script>
     {% if route %}
-	<!--  <div id="floating-panel">
-	<p id ="text">Please enter the bars you wish to add to your crawl. </p>
-      <input id="address" type="textbox" value="Glasgow University Union">
-      <input id="submit" type="button" value="Find bar ">
-	  <input id="directions" type="button" value="Find directions">
-    </div> -->
-    <div id="map_container">
+    </div>
 	<div id="map"></div>
 	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
 	<script 
@@ -42,6 +28,5 @@
     {% else %}
     <strong>There is no route present</strong>
     {% endif %}
-
 	
 {% endblock %}

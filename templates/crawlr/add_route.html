@@ -5,20 +5,9 @@
 Add a route 
 {% endblock %}
 {% block body_block %}
-<style>
 
-       #map {
-        height: 400px;
-        width: 60%;
-       }
-		  #map_container{
-			  height: 400px;
-			  width: 100%;
-		  }
-    </style>
 	<script src="{% static "javascript/save_route.js" %}"></script>
 	   <link rel="stylesheet" href="{% static 'css/save_route.css' %}" type="text/css">
-	<script src="{% static "javascript/save_route.js" %}"></script>
 
 <div id="floating-panel">
     <form id="route_form" method="post" action="{% url 'add_route' %}" 	>
