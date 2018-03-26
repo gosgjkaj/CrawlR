@@ -1,5 +1,6 @@
-#map {
-        height: 70%;
+	#map {
+        float:left;
+        height: 400px;
         width: 60%;
        }
 	   
@@ -50,12 +51,8 @@
         padding-top: 0;
       }
       #directions-panel {
-		position: absolute;
-		top: 50px;
-		right: 30px;
-        margin-top: 10px;
-        background-color: #FFEE77;
-        padding: 10px;
-        overflow: scroll;
-        height: 70%;
+		float:right;
+		height:400px;
+		width:40%;
+		overflow:scroll;
       }

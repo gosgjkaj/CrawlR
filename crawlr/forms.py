@@ -14,13 +14,6 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 class RouteForm(forms.ModelForm):
-    LOCATION_CHOICES = [
-        ('West end','West end'),
-        ('City Centre', 'City Centre'),
-        ('North', 'North'),
-        ('East end', 'East end'),
-        ('South side', 'South side'),
-    ]
     title = forms.CharField(max_length=128,
                             help_text = "Please enter the name of the Crawl")
    
@@ -30,14 +23,13 @@ class RouteForm(forms.ModelForm):
     end = forms.CharField(widget=forms.HiddenInput())
     waypts = forms.CharField(widget=forms.HiddenInput())
     #Location choice, a drop down menu selection
-    category = forms.CharField(label="What is the location of this crawl?",
-    widget=forms.Select(choices=LOCATION_CHOICES))
+    category = forms.ModelChoiceField(queryset=Category.objects.all())
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     
     class Meta:
         model = Route
-        exclude = ('category',)
+        fields = ('category', 'title', 'slug', 'start', 'end', 'waypts')
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())

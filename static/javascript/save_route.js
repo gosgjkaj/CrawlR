@@ -223,9 +223,9 @@ function initMap() {
     console.log("Waypoints for database", waypts_string);
 
 // Put values into django hidden fields in form
-    document.getElementById("id_start").value = start;
-    document.getElementById("id_end").value = end;
-    document.getElementById("id_waypts").value = waypts_string;
+    document.getElementById("start").value = start;
+    document.getElementById("end").value = end;
+    document.getElementById("waypts").value = waypts_string;
 
 
 
