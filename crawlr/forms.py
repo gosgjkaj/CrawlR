@@ -30,7 +30,7 @@ class RouteForm(forms.ModelForm):
     end = forms.CharField(widget=forms.HiddenInput())
     waypts = forms.CharField(widget=forms.HiddenInput())
     #Location choice, a drop down menu selection
-    location_choice = forms.CharField(label="What is the location of this crawl?",
+    category = forms.CharField(label="What is the location of this crawl?",
     widget=forms.Select(choices=LOCATION_CHOICES))
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 

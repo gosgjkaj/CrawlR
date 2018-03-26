@@ -54,7 +54,7 @@ def show_route(request, route_name_slug):
 def find_directions(request):
     context_dict = {}
     return render(request, 'crawlr/find_directions.html', context=context_dict)
-        
+
 
 @login_required
 def add_category(request):

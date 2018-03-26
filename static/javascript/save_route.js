@@ -1,27 +1,7 @@
-function sendStuff() {
-// Get the variables from find_directions (session storage)
-    var start = sessionStorage.getItem('start');
-    var end = sessionStorage.getItem('end');
-    var waypts = sessionStorage.getItem('waypts');
 
-// Put the waypoints into a comma seperated string for the database
-    var waypts_sorted = waypts.join(",");
-
-// Console logs for testing
-    console.log("Start", start);
-    console.log("End", end);
-    console.log("Waypoints for database", waypts_sorted);
-
-// Put values into django hidden fields in form
-    document.getElementById("id_start").value = start;
-    document.getElementById("id_end").value = end;
-    document.getElementById("id_waypts").value = waypts_sorted;
-
-
-}
 
 function initMap() {
-        sendStuff()
+
 		var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
 
@@ -228,6 +208,24 @@ function initMap() {
        var wayptsString = sessionStorage.getItem('waypts_formap');
        var waypts = JSON.parse(wayptsString);
 		console.log("Waypoints correct",waypts);
+
+        // Get the variables from find_directions (session storage)
+    var start = sessionStorage.getItem('start');
+    var end = sessionStorage.getItem('end');
+    var waypts_string = sessionStorage.getItem('waypts_string');
+
+    // Clear session storage
+      sessionStorage.clear();
+
+// Console logs for testing
+    console.log("Start", start);
+    console.log("End", end);
+    console.log("Waypoints for database", waypts_string);
+
+// Put values into django hidden fields in form
+    document.getElementById("id_start").value = start;
+    document.getElementById("id_end").value = end;
+    document.getElementById("id_waypts").value = waypts_string;
 
 
 

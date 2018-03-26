@@ -4,7 +4,9 @@
 {% block title_block %}
 Add a route 
 {% endblock %}
+{% block body_block %}
 <style>
+
        #map {
         height: 400px;
         width: 60%;
@@ -17,7 +19,7 @@ Add a route
 	<script src="{% static "javascript/save_route.js" %}"></script>
 	   <link rel="stylesheet" href="{% static 'css/save_route.css' %}" type="text/css">
 	<script src="{% static "javascript/save_route.js" %}"></script>
-{% block body_block %}
+
 <div id="floating-panel">
     <form id="route_form" method="post" action="{% url 'add_route' %}" 	>
     {% csrf_token %}
@@ -31,7 +33,7 @@ Add a route
     {% endfor %}
     <input type="submit" name="submit" value="Save Route" />
     </form>
-{% endblock %}
+
 
 <div id="map-container">
     <div id="map"></div>
@@ -42,3 +44,4 @@ Add a route
    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEx7OIFH1rB8ReeZcVKTnyCoIrpbcQ6I&callback=initMap">
     </script>
+{% endblock %}

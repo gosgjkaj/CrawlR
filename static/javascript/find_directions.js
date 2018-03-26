@@ -302,7 +302,7 @@
       function saveRoute(start, end, waypts, points){
           sessionStorage.setItem('start', start);
           sessionStorage.setItem('end', end);
-          sessionStorage.setItem('waypts', points);
+          sessionStorage.setItem('waypts_string', points.join());
           sessionStorage.setItem('waypts_formap', JSON.stringify(waypts));
           window.location.href="/crawlr/save_route"
 
