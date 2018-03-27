@@ -202,7 +202,6 @@
 		document.getElementById('directions').addEventListener('click', function(){
 
 			calculateAndDisplayRoute(directionsService, directionsDisplay, points);
-
 			
       });
 	
@@ -258,6 +257,7 @@
             waypts.push({ location: points[i]});
           
         }
+
 		
 		
 		console.log("Waypoints (waypts)" , waypts);
@@ -268,7 +268,6 @@
           optimizeWaypoints: true,
           travelMode: 'WALKING'
         };
-
         directionsService.route(request, function(response, status) {
 	
           if (status === 'OK') {
@@ -283,7 +282,7 @@
 
 		document.getElementById('save').addEventListener('click', function(){
 
-			saveRoute(start,end,waypts, points);
+			saveRoute(start,end,waypts,points);
 
 
       });

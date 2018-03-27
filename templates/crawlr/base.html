@@ -5,13 +5,14 @@
 <html>
     <head lang="en">
         <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
         <title>
-            Rango -
+            Crawlr -
             {% block title_block %}
-            How to Tango with Django!
+            Welcome
             {% endblock %}
         </title>
-        <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+
     </head>
 
 <body>
@@ -44,4 +45,6 @@
         </div>
     </div>
 </body>
+<script src="{% static "javascript/jquery.min.js" %}"></script>
+<script src="{% static "javascript/crawlr-ajax.js" %}"></script>
 </html>

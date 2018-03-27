@@ -29,6 +29,7 @@ class Route(models.Model):
     title = models.CharField(max_length=128, unique = True)
     slug = models.SlugField(unique=True)
     views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
     start = models.CharField(max_length=200)
     end = models.CharField(max_length=200)
     waypts = models.TextField()

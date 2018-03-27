@@ -17,4 +17,5 @@ urlpatterns = [
     url(r'^restricted/$', views.restricted, name='restricted'),
     url(r'^save_route/$', views.add_route, name='add_route'),
     url(r'^find_directions/$', views.find_directions, name='find_directions'),
+    url(r'^like/$', views.like_route, name='like_route'),
 ]

@@ -13,6 +13,15 @@
 </div>
 
 <div>
+    {% if user.is_authenticated %}
+    <div>
+    <button id="likes" data-routename="{{route.slug}}" class="btn btn-primary btn-sm" type="button">
+         Like
+     </button>
+     <div hidden id="button_used"> Thank you for your input! </div>
+    {% endif %}
+    <div> Likes: </div>
+    <div id="like_count"> {{ route.likes }}</div>
 	<script>
 		var start = "{{ route.start }}";
 		var end = "{{ route.end }}";

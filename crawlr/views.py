@@ -80,6 +80,22 @@ def add_route(request):
             print(form.errors)
     return render(request, 'crawlr/add_route.html', {'form':form})
 
+@login_required
+def like_route(request):
+    print("like request received")
+    route_name= None
+    if request.method == 'GET':
+        route_name = request.GET['route_slug']
+        likes = 0
+        if route_name:
+            this_route = Route.objects.get(slug=route_name)
+            if this_route:
+                likes = this_route.likes + 1
+                this_route.likes = likes
+                this_route.save()
+    return HttpResponse(likes)
+
+
 def register(request):
     registered = False
     if request.method == 'POST':
