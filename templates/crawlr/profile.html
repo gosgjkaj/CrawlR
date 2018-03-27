@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body_block %}
+<div id="profile-container">
+    <h1>Profile</h1>
+    <p>Username: {{ user.user }}</p>
+    <div id="routes">
+        <h2>{{ user.user }} 's created routes }}</h2>
+
+    </div>
+
+
+
+
+
+</div>
+
+{% endblock %}
