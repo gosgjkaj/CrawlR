@@ -18,7 +18,7 @@
     <strong>No routes currently in category.</strong>
     {% endif %}
     {% if user.is_authenticated %}
-    <a href="{% url 'add_route' %}">Add Route</a>
+    <a href="{% url 'find_directions' %}">Find Directions and Add a Route</a>
     {% endif %}
     {% else %}
     The specified category does not exist!

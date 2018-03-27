@@ -33,6 +33,7 @@ class Route(models.Model):
     start = models.CharField(max_length=200)
     end = models.CharField(max_length=200)
     waypts = models.TextField()
+    liked_by=models.ManyToManyField(User)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

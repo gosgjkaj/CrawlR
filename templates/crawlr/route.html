@@ -14,11 +14,15 @@
 
 <div>
     {% if user.is_authenticated %}
+    {% if liked %}
+    <div> You've already liked this route! </div>
+    {%else%}
     <div>
     <button id="likes" data-routename="{{route.slug}}" class="btn btn-primary btn-sm" type="button">
          Like
      </button>
      <div hidden id="button_used"> Thank you for your input! </div>
+    {% endif %}
     {% endif %}
     <div> Likes: </div>
     <div id="like_count"> {{ route.likes }}</div>

@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from crawlr.models import Category, Route
+from crawlr.models import Category, Route, User
 from crawlr.forms import CategoryForm, RouteForm, UserForm, UserProfileForm
 
 def index(request):
@@ -47,6 +47,10 @@ def show_route(request, route_name_slug):
     try:
         route = Route.objects.get(slug=route_name_slug)
         context_dict['route']= route
+        if request.user in route.liked_by.all():
+            context_dict['liked'] = True
+        else:
+            context_dict['liked'] = False
     except Category.DoesNotExist:
         context_dict['route']= None
     return render(request, 'crawlr/route.html', context=context_dict)
@@ -90,9 +94,14 @@ def like_route(request):
         if route_name:
             this_route = Route.objects.get(slug=route_name)
             if this_route:
-                likes = this_route.likes + 1
-                this_route.likes = likes
-                this_route.save()
+                if request.user in this_route.liked_by.all():
+                    likes = this_route.likes
+                    this_route.save()
+                else:
+                    likes = this_route.likes + 1
+                    this_route.likes = likes
+                    this_route.liked_by.add(request.user)
+                    this_route.save()
     return HttpResponse(likes)
 
 

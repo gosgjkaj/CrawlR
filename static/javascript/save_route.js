@@ -217,13 +217,9 @@ function initMap() {
     var waypts_string = sessionStorage.getItem('waypts_string');
 
     // Clear session storage
-      sessionStorage.clear();
 
 
 // Console logs for testing
-    //console.log("Start", start);
-    //console.log("End", end);
-    //console.log("Waypoints for database", waypts_string);
 
 
 
