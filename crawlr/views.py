@@ -11,13 +11,11 @@ from crawlr.forms import CategoryForm, RouteForm, UserForm, UserProfileForm
 
 def index(request):
     #A dictionary providing context for the template engine
-    #Orders categories by likes in descending order, retrieves
-    #the top 5, or all if less than 5
-    category_list = Category.objects.order_by('-likes')[:5]
-    route_list = Route.objects.order_by('-views')[:5]
+    #shows all available categories, and the top 5 most liked routes overall
+    category_list = Category.objects.all()
     liked_routes = Route.objects.order_by('-likes')[:5]
 
-    context_dict = {'categories': category_list, 'routes': route_list, 'likes' : liked_routes }
+    context_dict = {'categories': category_list, 'likes' : liked_routes }
 
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session['visits']

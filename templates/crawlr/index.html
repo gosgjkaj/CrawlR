@@ -2,17 +2,14 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<h1> Rango says...</h1>
-</div>
 <div>
     {% if user.is_authenticated %}
-    Howdy {{ user.username}}! <br/>
+    Hi {{ user.username}}! Please Drink Responsibly!<br/>
     {% else %}
-    Hey there partner! <br/>
+    Hi friend! Please Drink Responsibly! <br/>
     {% endif %}
-    <strong> {{ boldmessage }} </strong><br/>
 </div>
-<h2>Most Liked Categories</h2>
+<h2>Places to Drink</h2>
 <div>
     {% if categories %}
     <ul>
@@ -24,21 +21,6 @@
     <strong>There are no categories present.</strong>
     {% endif %}
 </div>
-<h2>Most Viewed Routes</h2>
-<div>
-    {% if routes %}
-    <ul>
-        {% for route in routes %}
-        <li><a href = "{% url 'show_route' route.slug %}"">{{ route.title }}</a></li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <strong>There are no routes present</strong>
-    {% endif %}
-     <img src="{%static "images/rango.jpg" %}" alt="Rango!" /><br/>
-    Visits: {{visits}}
-
-
     <div>
         <h2> Most liked routes</h2>
         {% if likes %}

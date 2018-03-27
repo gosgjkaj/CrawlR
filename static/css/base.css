@@ -12,6 +12,14 @@ body{
     margin: 60px;
 }
 
+img.logo {
+    display: block;
+    max-height: 10%;
+    max-width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .footer{
     display: flex;
     float: left;
@@ -35,10 +43,11 @@ body{
 }
 
 .navbar{
-    float:left;
+    position:relative;
     width:100%;
     list-style-type: none;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     overflow: hidden;
     background-color: #595959;

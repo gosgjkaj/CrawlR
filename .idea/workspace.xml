@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7842ce-cc6b-42a6-b7c4-1742795ee4b6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/crawlr/models.py" afterPath="$PROJECT_DIR$/crawlr/models.py" />
+      <change beforePath="$PROJECT_DIR$/crawlr/views.py" afterPath="$PROJECT_DIR$/crawlr/views.py" />
       <change beforePath="$PROJECT_DIR$/static/css/base.css" afterPath="$PROJECT_DIR$/static/css/base.css" />
-      <change beforePath="$PROJECT_DIR$/static/css/find_directions.css" afterPath="$PROJECT_DIR$/static/css/find_directions.css" />
-      <change beforePath="$PROJECT_DIR$/static/css/show_route.css" afterPath="$PROJECT_DIR$/static/css/show_route.css" />
+      <change beforePath="$PROJECT_DIR$/static/images/possum.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/images/rango.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/templates/crawlr/base.html" afterPath="$PROJECT_DIR$/templates/crawlr/base.html" />
       <change beforePath="$PROJECT_DIR$/templates/crawlr/find_directions.html" afterPath="$PROJECT_DIR$/templates/crawlr/find_directions.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/route.html" afterPath="$PROJECT_DIR$/templates/crawlr/route.html" />
+      <change beforePath="$PROJECT_DIR$/templates/crawlr/index.html" afterPath="$PROJECT_DIR$/templates/crawlr/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +29,18 @@
           <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/crawlr/base.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+                <state relative-caret-position="272">
+                  <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/crawlr/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -35,8 +49,8 @@
           <file leaf-file-name="base.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/css/base.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="646">
-                  <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+                <state relative-caret-position="272">
+                  <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -52,21 +66,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="category.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/crawlr/category.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/crawlr/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-629">
-                  <caret line="38" column="75" lean-forward="false" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+                <state relative-caret-position="289">
+                  <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
                   <folding>
                     <element signature="e#24#63#0" expanded="true" />
                   </folding>
@@ -87,18 +91,18 @@
           <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/crawlr/models.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="358">
-                  <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+                <state relative-caret-position="102">
+                  <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="find_directions.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="find_directions.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/crawlr/find_directions.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+                <state relative-caret-position="102">
+                  <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -107,14 +111,14 @@
           <file leaf-file-name="find_directions.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/css/find_directions.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="11" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+                <state relative-caret-position="323">
+                  <caret line="19" column="27" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="19" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="show_route.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="show_route.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/css/show_route.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-108">
@@ -131,8 +135,8 @@
           <file leaf-file-name="route.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/crawlr/route.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+                <state relative-caret-position="68">
+                  <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="80" />
                   <folding />
                 </state>
               </provider>
@@ -152,7 +156,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>points</find>
+      <find>static/</find>
     </findStrings>
+    <replaceStrings>
+      <replace>{% static '</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -165,16 +173,17 @@
         <option value="$PROJECT_DIR$/static/javascript/crawlr-ajax.js" />
         <option value="$PROJECT_DIR$/static/javascript/find_directions.js" />
         <option value="$PROJECT_DIR$/static/javascript/save_route.js" />
-        <option value="$PROJECT_DIR$/templates/crawlr/base.html" />
         <option value="$PROJECT_DIR$/templates/crawlr/add_route.html" />
-        <option value="$PROJECT_DIR$/crawlr/models.py" />
-        <option value="$PROJECT_DIR$/crawlr/views.py" />
         <option value="$PROJECT_DIR$/templates/crawlr/category.html" />
         <option value="$PROJECT_DIR$/static/css/find_directions.css" />
-        <option value="$PROJECT_DIR$/templates/crawlr/find_directions.html" />
-        <option value="$PROJECT_DIR$/static/css/base.css" />
-        <option value="$PROJECT_DIR$/templates/crawlr/route.html" />
         <option value="$PROJECT_DIR$/static/css/show_route.css" />
+        <option value="$PROJECT_DIR$/crawlr/models.py" />
+        <option value="$PROJECT_DIR$/crawlr/views.py" />
+        <option value="$PROJECT_DIR$/templates/crawlr/route.html" />
+        <option value="$PROJECT_DIR$/templates/crawlr/index.html" />
+        <option value="$PROJECT_DIR$/static/css/base.css" />
+        <option value="$PROJECT_DIR$/templates/crawlr/base.html" />
+        <option value="$PROJECT_DIR$/templates/crawlr/find_directions.html" />
       </list>
     </option>
   </component>
@@ -490,24 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crawlr/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawlr/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="38" column="75" lean-forward="false" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/crawlr/cats.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -516,27 +507,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/crawlr/base.html">
+    <entry file="file://$PROJECT_DIR$/static/css/show_route.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="18" lean-forward="true" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        <state relative-caret-position="-108">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/crawlr/find_directions.html">
+    <entry file="file://$PROJECT_DIR$/crawlr/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlr/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
-          <folding />
+          <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -550,16 +543,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/find_directions.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="323">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="19" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/show_route.css">
+    <entry file="file://$PROJECT_DIR$/static/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="272">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/crawlr/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/crawlr/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/crawlr/find_directions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
           <folding />
         </state>
       </provider>
