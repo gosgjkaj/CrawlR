@@ -15,7 +15,9 @@ def index(request):
     #the top 5, or all if less than 5
     category_list = Category.objects.order_by('-likes')[:5]
     route_list = Route.objects.order_by('-views')[:5]
-    context_dict = {'categories': category_list, 'routes': route_list}
+    liked_routes = Route.objects.order_by('-likes')[:5]
+
+    context_dict = {'categories': category_list, 'routes': route_list, 'likes' : liked_routes }
 
     visitor_cookie_handler(request)
     context_dict['visits'] = request.session['visits']
@@ -54,6 +56,7 @@ def show_route(request, route_name_slug):
 def find_directions(request):
     context_dict = {}
     return render(request, 'crawlr/find_directions.html', context=context_dict)
+
 
 
 @login_required
@@ -107,7 +110,7 @@ def register(request):
             user.set_password(user.password)
             user.save()
             profile = profile_form.save(commit=False)
-            profile.user=user
+            profile.user = user
             if 'picture' in request.FILES:
                 profile.picture = request.FILES['picture']
             profile.save()
@@ -137,6 +140,8 @@ def user_login(request):
             return render(request, 'crawlr/login.html', {'errormessage': 'Invalid username or password.'})
     else:
         return render(request, 'crawlr/login.html', {})
+
+
 
 @login_required
 def user_logout(request):

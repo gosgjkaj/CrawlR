@@ -37,4 +37,19 @@
     {% endif %}
      <img src="{%static "images/rango.jpg" %}" alt="Rango!" /><br/>
     Visits: {{visits}}
+
+
+    <div>
+        <h2> Most liked routes</h2>
+        {% if likes %}
+        <ul>
+            {% for route in likes %}
+            <li><a href="{% url 'show_route' route.slug %}">{{ route.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>No routes are well loved right now.</strong>
+
+        {% endif %}
+    </div>
 {% endblock %}
