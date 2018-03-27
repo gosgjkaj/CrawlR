@@ -1,10 +1,11 @@
 
-	#map-container{
-
-
-
-
-    }	#map {
+	    #map-container {
+        float:left;
+        height: 400px;
+        width: 100%;
+        overflow: hidden;
+        }
+        #map {
         float:left;
         height: 400px;
         width: 60%;

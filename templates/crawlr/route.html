@@ -4,27 +4,22 @@
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static "css/show_route.css" %}">
 <script src="{% static "javascript/show_route.js" %}"></script>
-<div>
 <h1>{{ route.category }}</h1>
-</div>
 
-<div>
 <h2>{{ route.title }}</h2>
-</div>
 
-<div>
+
     {% if user.is_authenticated %}
     {% if liked %}
-    <div> You've already liked this route! </div>
+    You've already liked this route!
     {%else%}
-    <div>
     <button id="likes" data-routename="{{route.slug}}" class="btn btn-primary btn-sm" type="button">
          Like
      </button>
      <div hidden id="button_used"> Thank you for your input! </div>
     {% endif %}
     {% endif %}
-    <div> Likes: </div>
+     Likes:
     <div id="like_count"> {{ route.likes }}</div>
 	<script>
 		var start = "{{ route.start }}";
@@ -32,14 +27,16 @@
 		var waypts_string = "{{ route.waypts }}";
 	</script>
     {% if route %}
-    </div>
+    <div id="map-container">
 	<div id="map"></div>
-	<div id="directions-panel" style="float:right;width:30%;height 100%"></div>
+	<div id="directions-panel"></div>
+    </div>
 	<script 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGzuv9cqKai_NWGPlno05lh1WXCkZuP2I&callback=initMap">
     </script>
     {% else %}
     <strong>There is no route present</strong>
     {% endif %}
+
 	
 {% endblock %}
