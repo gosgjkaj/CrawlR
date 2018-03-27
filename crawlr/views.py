@@ -36,7 +36,7 @@ def show_category(request, category_name_slug):
     context_dict = {}
     try:
         category = Category.objects.get(slug=category_name_slug)
-        routes = Route.objects.filter(category=category)
+        routes = Route.objects.filter(category=category).order_by('-likes')
         context_dict['routes']= routes
         context_dict['category']= category
     except Category.DoesNotExist:
