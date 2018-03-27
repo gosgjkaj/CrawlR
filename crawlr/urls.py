@@ -18,4 +18,6 @@ urlpatterns = [
     url(r'^save_route/$', views.add_route, name='add_route'),
     url(r'^find_directions/$', views.find_directions, name='find_directions'),
     url(r'^like/$', views.like_route, name='like_route'),
+    url(r'^profile/$', views.show_profile, name='show_profile'),
+    url(r'^profile/(?P<username_slug>[\w\-]+)/$', views.show_profile, name='show_profile'),
 ]

@@ -59,7 +59,19 @@ def find_directions(request):
     context_dict = {}
     return render(request, 'crawlr/find_directions.html', context=context_dict)
 
+def show_profile(request, username_slug):
+    context_dict = {}
+    if username_slug:
+        user = User.objects.get(username=username_slug)
 
+    context_dict['user'] = user
+    # try:
+    #     routes = Route.objects.get(creator=username_slug)
+    #     context_dict['routes'] = routes
+    # except Route.DoesNotExist:
+    #     context_dict['routes'] = None
+
+    return render(request, 'crawlr/profile.html', context=context_dict)
 
 @login_required
 def add_category(request):

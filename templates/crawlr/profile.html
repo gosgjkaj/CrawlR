@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'crawlr/base.html' %}
 {% load staticfiles %}
 
 {% block head %}
@@ -10,7 +10,12 @@
     <h1>Profile</h1>
     <p>Username: {{ user.user }}</p>
     <div id="routes">
-        <h2>{{ user.user }} 's created routes }}</h2>
+        <h2>{{ user.username }} 's created routes }}</h2>
+        <ul>{% for route in user.username.created_routes.all %}
+
+            <li><a href = "{% url 'show_route' route.slug  %}">{{ route.title }}</a></li>
+            {% endfor %}}
+        </ul>
 
     </div>
 

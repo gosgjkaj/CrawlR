@@ -54,6 +54,8 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
     website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
+    slug = models.SlugField(unique=True)
+    created_routes = models.ManyToManyField(Route)
 
 
 

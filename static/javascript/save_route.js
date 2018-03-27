@@ -242,6 +242,7 @@ function initMap() {
       document.getElementById("id_start").value = start;
       document.getElementById("id_end").value = end;
       document.getElementById("id_waypts").value = waypts_string;
+      document.getElementById("id_creator").value = user;
 
 
 

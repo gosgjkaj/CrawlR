@@ -8,25 +8,25 @@ from crawlr.models import Category, Route
 def populate():
     west_end_routes = [{"title": "An example crawl1", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
                  "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
-                 "category":"west end"},]
+                 "category":"west end", "creator":"test"},]
 
 
     city_centre_routes = [{"title": "An example crawl2", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
                  "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
-                 "category":"city centre"},]
+                 "category":"west end", "creator":"test"},]
 
 
     north_routes = [{"title": "An example crawl3", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
                  "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
-                 "category":"north"},]
+                 "category":"west end", "creator":"test"},]
 
     east_end_routes = [{"title": "An example crawl4", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
                  "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
-                 "category":"east end"},]
+                 "category":"west end", "creator":"test"},]
 
     south_side_routes = [{"title": "An example crawl5", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
                  "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
-                 "category":"south side "},]
+                 "category":"west end", "creator":"test"},]
               
     cats = {"West end": {"routes": west_end_routes,"views":128,"likes":64},
             "City Centre": {"routes":city_centre_routes,"views":64,"likes":32},
@@ -39,7 +39,7 @@ def populate():
     for cat, cat_data in cats.items():
         c = add_cat(cat, cat_data["views"], cat_data["likes"])
         for r in cat_data["routes"]:
-            add_route(c, r["title"], r["start"],r["end"],r["waypts"], 0)
+            add_route(c, r["title"], r["start"],r["end"],r["waypts"], 0 , r["creator"])
 
 
 
@@ -47,12 +47,13 @@ def populate():
         for p in Route.objects.filter(category=c):
             print("- {0} - {1}".format(str(c), str(p)))
 
-def add_route(cat, title, start, end, waypts, views=0):
+def add_route(cat, title, start, end, waypts, views , creator):
     r = Route.objects.get_or_create(category=cat, title=title)[0]
     r.start = start
     r.end = end
     r.waypts = waypts
     r.views=views
+    r.creator = creator
     r.save()
     return r
 
