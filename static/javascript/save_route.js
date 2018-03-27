@@ -207,25 +207,25 @@ function initMap() {
   function calculateAndDisplayRoute(directionsService, directionsDisplay) {
        var wayptsString = sessionStorage.getItem('waypts_formap');
        var waypts = JSON.parse(wayptsString);
+
 		console.log("Waypoints correct",waypts);
 
         // Get the variables from find_directions (session storage)
     var start = sessionStorage.getItem('start');
+
     var end = sessionStorage.getItem('end');
     var waypts_string = sessionStorage.getItem('waypts_string');
 
     // Clear session storage
       sessionStorage.clear();
 
-// Console logs for testing
-    console.log("Start", start);
-    console.log("End", end);
-    console.log("Waypoints for database", waypts_string);
 
-// Put values into django hidden fields in form
-    document.getElementById("start").value = start;
-    document.getElementById("end").value = end;
-    document.getElementById("waypts").value = waypts_string;
+// Console logs for testing
+    //console.log("Start", start);
+    //console.log("End", end);
+    //console.log("Waypoints for database", waypts_string);
+
+
 
 
 
@@ -242,6 +242,10 @@ function initMap() {
           if (status === 'OK') {
             directionsDisplay.setDirections(response);
 			var ser = JSON.stringify(request);
+			// Put values into django hidden fields in form
+      document.getElementById("id_start").value = start;
+      document.getElementById("id_end").value = end;
+      document.getElementById("id_waypts").value = waypts_string;
 
 
 

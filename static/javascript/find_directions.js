@@ -304,7 +304,7 @@
           sessionStorage.setItem('end', end);
           sessionStorage.setItem('waypts_string', points.join());
           sessionStorage.setItem('waypts_formap', JSON.stringify(waypts));
-          window.location.href="/crawlr/save_route"
+          window.location.href="/crawlr/save_route";
 
 
 

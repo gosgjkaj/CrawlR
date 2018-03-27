@@ -6,7 +6,6 @@ Add a route
 {% endblock %}
 {% block body_block %}
 
-	<script src="{% static "javascript/save_route.js" %}"></script>
 	   <link rel="stylesheet" href="{% static 'css/save_route.css' %}" type="text/css">
 
 <div id="floating-panel">
@@ -30,6 +29,7 @@ Add a route
 
 </div>
 		</div>
+   <script src="{% static "javascript/save_route.js" %}"></script>
    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdEx7OIFH1rB8ReeZcVKTnyCoIrpbcQ6I&callback=initMap">
     </script>
