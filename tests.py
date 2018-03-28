@@ -18,12 +18,6 @@ def create_test_user(username):
         test_user = User.objects.create_user(username=username, password='test1234')
     return test_user
 
-def create_test_userprofile(username):
-    test_user_1 = create_test_user(username)
-    test_userprofile = UserProfile(user=test_user_1)
-    test_userprofile.save()
-    return test_userprofile
-
 def create_test_route(cat_name, title, username, likes, views):
     test_cat = create_test_category(cat_name)
     test_user = create_test_user(username)
