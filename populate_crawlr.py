@@ -20,7 +20,6 @@ def populate():
         test_user_2 = User.objects.create_user(username='test_user_2', password='test1234')
         test_user_profile_2 = UserProfile.objects.create(user=test_user_2)
         test_user_profile_2.save()
-        post_save.connect(User)
 
     west_end_routes = [{"title": "An example crawl1", "start":"Glasgow University Union glasgow", "end":"The Record Factory glasgow",
                  "waypts":"bank street glasgow*coopers glasgow*the crafty pig glasgow*qmu glasgow",
