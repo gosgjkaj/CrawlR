@@ -4,9 +4,11 @@
 {% block body_block %}
 <link rel="stylesheet" type="text/css" href="{% static "css/show_route.css" %}">
 <script src="{% static "javascript/show_route.js" %}"></script>
+<div id = "centred_text">
 <h1>{{ route.category }}</h1>
 
-<h2>{{ route.title }}</h2>
+<h2>{{ route.title }} - {{ route.created_by }}</h2>
+</div>
 
 
     {% if user.is_authenticated %}

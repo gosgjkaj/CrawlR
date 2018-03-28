@@ -7,7 +7,9 @@
 
 {% block body_block %}
     {% if category %}
+    <div id="centred_text">
     <h1>{{ category.name }} - Most Liked Routes</h1>
+    </div>
     {% if routes %}
     <ul>
         {% for route in routes %}

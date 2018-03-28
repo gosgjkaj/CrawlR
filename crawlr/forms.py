@@ -33,7 +33,9 @@ class RouteForm(forms.ModelForm):
         fields = ('category', 'title', 'slug', 'start', 'end', 'waypts', 'created_by')
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder' : 'Password'}), label='')
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}), label='')
+    email = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Email'}), label='', required=False)
 
     class Meta:
         model = User
@@ -42,4 +44,4 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('website', 'picture')
+        fields = ('picture',)

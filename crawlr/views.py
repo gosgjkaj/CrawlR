@@ -60,20 +60,6 @@ def find_directions(request):
     context_dict = {}
     return render(request, 'crawlr/find_directions.html', context=context_dict)
 
-
-
-@login_required
-def add_category(request):
-    form = CategoryForm()
-    if request.method == 'POST':
-        form = CategoryForm(request.POST)
-        if form.is_valid():
-            form.save(commit=True)
-            return index(request)
-        else:
-            print(form.errors)
-    return render(request, 'crawlr/add_category.html', {'form':form})
-
 @login_required
 def add_route(request):
     form = RouteForm(initial = {"created_by": request.user})
@@ -155,10 +141,6 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
-
-@login_required
-def restricted(request):
-    return render(request, 'crawlr/restricted.html')
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)

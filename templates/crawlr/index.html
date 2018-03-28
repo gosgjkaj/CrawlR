@@ -2,11 +2,11 @@
 {% load staticfiles %}
 
 {% block body_block %}
-<div>
+<div id = "centred_text">
     {% if user.is_authenticated %}
-    Hi {{ user.username}}! Please Drink Responsibly!<br/>
+    Hi {{ user.username}}, please drink responsibly!<br/>
     {% else %}
-    Hi friend! Please Drink Responsibly! <br/>
+    Hey there, please drink responsibly! <br/>
     {% endif %}
 </div>
 <h2>Places to Drink</h2>

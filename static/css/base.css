@@ -1,3 +1,7 @@
+* {
+    font-family: sans-serif;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -12,6 +16,19 @@ body{
     margin: 60px;
 }
 
+#centred_text {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+p {
+    display: block;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
 img.logo {
     display: block;
     max-height: 10%;

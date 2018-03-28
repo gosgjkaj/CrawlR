@@ -7,14 +7,8 @@
     {% endblock %}
 
 {% block body_block %}
-<h1> Rango says here is the about page</h1><br />
+<h1>About Crawlr</h1><br />
+<div id = "centred_text">Crawlr is a website for making and sharing pub crawls, made with Django 1.11.7, bcrypt 3.1.4, Ajax, Jquery, Javascript, and the google maps API, please drink responsibly.</div>
 Visits: {{visits}}
 
-
-<div>
-    <img src="{{ MEDIA_URL }}cat.jpg"
-    alt="Cat." />
-    <img src="{%static "images/possum.jpg" %}"
-    alt="Possum." />
-</div>
 {% endblock %}
