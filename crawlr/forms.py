@@ -25,11 +25,12 @@ class RouteForm(forms.ModelForm):
     #Location choice, a drop down menu selection
     category = forms.ModelChoiceField(queryset=Category.objects.all())
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
+    created_by = forms.ModelChoiceField(queryset=User.objects.all(), widget=forms.HiddenInput())
 
     
     class Meta:
         model = Route
-        fields = ('category', 'title', 'slug', 'start', 'end', 'waypts')
+        fields = ('category', 'title', 'slug', 'start', 'end', 'waypts', 'created_by')
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())

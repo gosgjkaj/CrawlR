@@ -6,7 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from crawlr.models import Category, Route, User
+from django.contrib.auth.models import User
+from crawlr.models import Category, Route
 from crawlr.forms import CategoryForm, RouteForm, UserForm, UserProfileForm
 
 def index(request):
@@ -79,6 +80,7 @@ def add_route(request):
     if request.method == 'POST':
         form = RouteForm(request.POST)
         if form.is_valid():
+            form.created_by=request.user
             form.save(commit=True)
             return index(request)
         else:
