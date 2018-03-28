@@ -88,3 +88,13 @@ class IndexViewTests(TestCase):
         self.assertContains(response, 'route 4')
         num_cat = len(response.context['likes'])
         self.assertEqual(num_cat, 4)
+
+class CategoryViewTests(TestCase):
+    def test_category_no_routes(self):
+        cat = create_test_category('cat1')
+        response = self.client.get(reverse('show_category', kwargs={'category_name_slug':cat.slug}))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "No routes currently in category.")
+        self.assertQuerysetEqual(response.context['routes'], [])
+
