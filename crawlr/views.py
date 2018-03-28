@@ -76,11 +76,10 @@ def add_category(request):
 
 @login_required
 def add_route(request):
-    form = RouteForm()
+    form = RouteForm(initial = {"created_by": request.user})
     if request.method == 'POST':
         form = RouteForm(request.POST)
         if form.is_valid():
-            form.created_by=request.user
             form.save(commit=True)
             return index(request)
         else:
