@@ -12,8 +12,9 @@
 
         <p> Username: {{ user.username }} </p>
         <p>Email: {{ user.email }} </p>
-        <p>Website: {{ user.website }} </p>
+        {% if user.userprofile.picture %}
         <p> <img src="{{ user.userprofile.picture.url }}" width="220">
+        {% endif %}
         <h2>{{ user.username }} 's created routes </h2>
         {% if routes %}
 

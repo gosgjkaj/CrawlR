@@ -78,16 +78,19 @@ def show_profile(request, username):
 
 def show_profile(request, username):
     context_dict = {}
-    print(username)
-    user = User.objects.get(username=username)
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return HttpResponseRedirect(reverse('index'))
     context_dict['user'] = user
+    print(user)
     try:
         routes = Route.objects.filter(created_by=user)
         context_dict['routes'] = routes
     except Route.DoesNotExist:
         context_dict['routes'] = None
 
-    return render(request, 'crawlr/profile.html', context=context_dict)
+    return render(request, 'crawlr/profile.html',context=context_dict)
 
 @login_required
 def add_category(request):

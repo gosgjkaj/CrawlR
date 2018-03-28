@@ -7,7 +7,7 @@
 <div id = "centred_text">
 <h1>{{ route.category }}</h1>
 
-<h2>{{ route.title }} - {{ route.created_by }}</h2>
+<h2>{{ route.title }} - <a href ="{% url 'show_profile' route.created_by %}">{{ route.created_by }}</a></h2>
 </div>
 
 

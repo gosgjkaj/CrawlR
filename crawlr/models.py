@@ -30,8 +30,8 @@ class Route(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128, unique = True)
     slug = models.SlugField(unique=True)
-    views = models.PositiveIntegerField(default=0)
-    likes = models.PositiveIntegerField(default=0)
+    views = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
     start = models.CharField(max_length=200)
     end = models.CharField(max_length=200)
     waypts = models.TextField()
@@ -40,6 +40,10 @@ class Route(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        if self.likes<0:
+            self.likes=0
+        if self.views<0:
+            self.views=0
         super(Route, self).save(*args, **kwargs)
 
     class Meta:
@@ -53,7 +57,6 @@ class Route(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    website = models.URLField(blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
 
 
