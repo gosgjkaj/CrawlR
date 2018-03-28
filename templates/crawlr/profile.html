@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'crawlr/base.html' %}
 {% load staticfiles %}
 
 {% block head %}
@@ -8,10 +8,24 @@
 {% block body_block %}
 <div id="profile-container">
     <h1>Profile</h1>
-    <p>Username: {{ user.user }}</p>
     <div id="routes">
-        <h2>{{ user.user }} 's created routes }}</h2>
 
+        <p> Username: {{ user.username }} </p>
+        <p>Email: {{ user.email }} </p>
+        <p>Website: {{ user.website }} </p>
+        <p> <img src="{{ user.userprofile.picture.url }}" width="220">
+        <h2>{{ user.username }} 's created routes </h2>
+        {% if routes %}
+
+         <ul>
+            {% for route in routes %}
+            <li><a href="{% url 'show_route' route.slug %}">{{ route.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <strong>This user has not created any routes.</strong>
+
+        {% endif %}
     </div>
 
 

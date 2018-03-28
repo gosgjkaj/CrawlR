@@ -205,100 +205,81 @@
 			
       });
 	
-	  
-	  function displayWaypoints(){
-			document.write(waypts);
-	  
-	  }
 
-
+  // Function to find the locations on the map of bars
       function geocodeAddress(geocoder, resultsMap, points) {
+
+        // Making sure the searches are local to Glasgow
         var address = document.getElementById('address').value + "glasgow";
+
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === 'OK') {
             resultsMap.setCenter(results[0].geometry.location);
+            // Set a marker on the location
             var marker = new google.maps.Marker({
               map: resultsMap,
               position: results[0].geometry.location
             });
-			
+
+            // Keep track of all bars added
 			points.push(address);
+
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
         });
       }
-	function calcRoute() {
-  
-  var request = {
-    origin: start,
-    destination: end,
-	waypoints: waypts,
-    travelMode: 'WALKING'
-	
-  };
-  document.alert(waypts);
-  directionsService.route(request, function(result, status) {
-    if (status == 'OK') {
-      directionsDisplay.setDirections(result);
-    }
-  });
-}
+
  }
   function calculateAndDisplayRoute(directionsService, directionsDisplay, points) {
-		console.log("All the stops", points);
+
 		var start = points.shift();
-		console.log("Start: ",start);
 		var end = points.pop();
-		console.log("End:" , end);
-		console.log("Waypoints (points)" ,points);
         var waypts = [];
+
+        // Put waypoints into proper format
         for (var i = 0; i < points.length; i++) {
             waypts.push({ location: points[i]});
           
         }
 
-		
-		
-		console.log("Waypoints (waypts)" , waypts);
-		var request = {
-          origin: start,
-          destination: end,
-          waypoints: waypts,
-          optimizeWaypoints: true,
-          travelMode: 'WALKING'
-        };
-        directionsService.route(request, function(response, status) {
-	
-          if (status === 'OK') {
-            directionsDisplay.setDirections(response);
-			var ser = JSON.stringify(request);
-			console.log(ser);
-			// Get the save button
-			var saveButton = document.getElementById('save');
-            // Display the save button since a route has been found
-			saveButton.style.display = 'block';
-			// Save route
+		if(!(start==null || end==null || waypts.length < 1)) {
+            console.log("Waypoints (waypts)", waypts);
+            var request = {
+                origin: start,
+                destination: end,
+                waypoints: waypts,
+                optimizeWaypoints: true,
+                travelMode: 'WALKING'
+            };
+            directionsService.route(request, function (response, status) {
 
-		document.getElementById('save').addEventListener('click', function(){
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                    var ser = JSON.stringify(request);
+                    console.log(ser);
+                    // Get the save button
+                    var saveButton = document.getElementById('save');
+                    // Display the save button since a route has been found
+                    saveButton.style.display = 'block';
+                    // Save route
 
-			saveRoute(start,end,waypts,points);
+                    document.getElementById('save').addEventListener('click', function () {
 
+                        saveRoute(start, end, waypts, points);
 
-      });
-
-
-
-
-           
-           
-          } else {
-            window.alert('Directions request failed due to ' + status);
-          }
-        });
+                    });
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }   else{
+            location.reload();
+                }
       }
 
       function saveRoute(start, end, waypts, points){
+          // Save variables to session storage
           sessionStorage.setItem('start', start);
           sessionStorage.setItem('end', end);
           sessionStorage.setItem('waypts_string', points.join());

@@ -60,6 +60,48 @@ def find_directions(request):
     context_dict = {}
     return render(request, 'crawlr/find_directions.html', context=context_dict)
 
+
+def show_profile(request, username):
+    context_dict = {}
+    if username_slug:
+        user = User.objects.get(username=username)
+
+
+    context_dict['user'] = user
+    try:
+        routes = Route.objects.get(creator=username_slug)
+        context_dict['routes'] = routes
+    except Route.DoesNotExist:
+        context_dict['routes'] = None
+
+    return render(request, 'crawlr/profile.html', context=context_dict)
+
+def show_profile(request, username):
+    context_dict = {}
+    print(username)
+    user = User.objects.get(username=username)
+    context_dict['user'] = user
+    try:
+        routes = Route.objects.filter(created_by=user)
+        context_dict['routes'] = routes
+    except Route.DoesNotExist:
+        context_dict['routes'] = None
+
+    return render(request, 'crawlr/profile.html', context=context_dict)
+
+@login_required
+def add_category(request):
+    form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+    return render(request, 'crawlr/add_category.html', {'form':form})
+
+
 @login_required
 def add_route(request):
     form = RouteForm(initial = {"created_by": request.user})
