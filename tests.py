@@ -91,10 +91,46 @@ class IndexViewTests(TestCase):
 
 class CategoryViewTests(TestCase):
     def test_category_no_routes(self):
-        cat = create_test_category('cat1')
-        response = self.client.get(reverse('show_category', kwargs={'category_name_slug':cat.slug}))
+        cat = create_test_category('cat 1')
 
+        response = self.client.get(reverse('show_category', kwargs={'category_name_slug':cat.slug}))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No routes currently in category.")
         self.assertQuerysetEqual(response.context['routes'], [])
 
+    def test_category_with_routes(self):
+        cat = create_test_category('cat 1')
+        create_test_route('cat 1', 'route 1', 'test1', 0, 0)
+        create_test_route('cat 1', 'route 2', 'test1', 0, 0)
+        create_test_route('cat 2', 'route 3', 'test2', 0, 0)
+        create_test_route('cat 3', 'route 4', 'test3', 0, 0)
+
+        response = self.client.get(reverse('show_category', kwargs={'category_name_slug':cat.slug}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "route 2")
+        self.assertNotContains(response, "route 3")
+        num_routes= len(response.context['routes'])
+        self.assertEqual(num_routes, 2)
+
+class ProfileViewTests(TestCase):
+    def test_profile_no_routes(self):
+        test_user = create_test_user('test1')
+
+        response = self.client.get(reverse('show_profile', kwargs={'username': test_user.username}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "This user has not created any routes.")
+        self.assertQuerysetEqual(response.context['routes'], [])
+
+    def test_profile_with_routes(self):
+        test_user = create_test_user('test1')
+        create_test_route('cat 1', 'route 1', 'test1', 0, 0)
+        create_test_route('cat 1', 'route 2', 'test1', 0, 0)
+        create_test_route('cat 2', 'route 3', 'test2', 0, 0)
+        create_test_route('cat 3', 'route 4', 'test3', 0, 0)
+
+        response = self.client.get(reverse('show_profile', kwargs={'username': test_user.username}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "route 2")
+        self.assertNotContains(response, "route 3")
+        num_routes = len(response.context['routes'])
+        self.assertEqual(num_routes, 2)
