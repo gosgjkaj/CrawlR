@@ -11,13 +11,13 @@ body{
 
 #app{
     background-color: #EDF4ED;
-    width: 900px;
+    width: 90%;
     display: block;
     margin: 60px;
 }
 
 #centred_text {
-    width: 900px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     text-align:center;
@@ -67,7 +67,7 @@ img.logo {
     margin-right: auto;
     padding: 0;
     overflow: hidden;
-    background-color: #595959;
+    background-color: #b28418;
 }
 
 .sidebar, .sidebar2, .ex {
@@ -84,5 +84,5 @@ img.logo {
 
 /* Change the link color to #111 (black) on hover */
 .sidebar a, .sidebar2 a, .ex a :hover {
-    background-color: #009933;
+    background-color: #b28418;
 }

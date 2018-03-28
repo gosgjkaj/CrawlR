@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7842ce-cc6b-42a6-b7c4-1742795ee4b6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/crawlr/forms.py" afterPath="$PROJECT_DIR$/crawlr/forms.py" />
-      <change beforePath="$PROJECT_DIR$/crawlr/urls.py" afterPath="$PROJECT_DIR$/crawlr/urls.py" />
-      <change beforePath="$PROJECT_DIR$/crawlr/views.py" afterPath="$PROJECT_DIR$/crawlr/views.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/static/css/base.css" afterPath="$PROJECT_DIR$/static/css/base.css" />
-      <change beforePath="$PROJECT_DIR$/static/css/show_route.css" afterPath="$PROJECT_DIR$/static/css/show_route.css" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/about.html" afterPath="$PROJECT_DIR$/templates/crawlr/about.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/base.html" afterPath="$PROJECT_DIR$/templates/crawlr/base.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/category.html" afterPath="$PROJECT_DIR$/templates/crawlr/category.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/index.html" afterPath="$PROJECT_DIR$/templates/crawlr/index.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/login.html" afterPath="$PROJECT_DIR$/templates/crawlr/login.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/register.html" afterPath="$PROJECT_DIR$/templates/crawlr/register.html" />
-      <change beforePath="$PROJECT_DIR$/templates/crawlr/route.html" afterPath="$PROJECT_DIR$/templates/crawlr/route.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,8 +72,8 @@
       <file leaf-file-name="base.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+            <state relative-caret-position="272">
+              <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -604,8 +594,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        <state relative-caret-position="272">
+          <caret line="19" column="14" lean-forward="false" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
           <folding />
         </state>
       </provider>
